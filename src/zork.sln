@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zork.web", "zork.web\zork.web.csproj", "{6FB68058-3C5C-40BB-9704-D4026AF7BD23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zork.web", "zork.web\zork.web.csproj", "{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6FB68058-3C5C-40BB-9704-D4026AF7BD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FB68058-3C5C-40BB-9704-D4026AF7BD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6FB68058-3C5C-40BB-9704-D4026AF7BD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FB68058-3C5C-40BB-9704-D4026AF7BD23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
