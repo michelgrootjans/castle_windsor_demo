@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
+using zork.core.Memberships;
 using zork.web.Models;
+
+// note to readers: I am not responsible for this code
+// Microsoft generated it
+// I'm trying hard to make it better, but give me some time
 
 namespace zork.web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IMembershipProvider membershipProvider;
 
-        //
-        // GET: /Account/LogOn
+        public AccountController()
+        {
+            membershipProvider = new AlwaysOkMembershipProvider();
+        }
 
         public ActionResult LogOn()
         {
             return View();
         }
 
-        //
-        // POST: /Account/LogOn
-
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                if (membershipProvider.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    if (IsRedirectable(returnUrl))
                     {
                         return Redirect(returnUrl);
                     }
@@ -47,8 +51,6 @@ namespace zork.web.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/LogOff
 
         public ActionResult LogOff()
         {
@@ -57,16 +59,10 @@ namespace zork.web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /Account/Register
-
         public ActionResult Register()
         {
             return View();
         }
-
-        //
-        // POST: /Account/Register
 
         [HttpPost]
         public ActionResult Register(RegisterModel model)
@@ -92,17 +88,11 @@ namespace zork.web.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ChangePassword
-
         [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
         }
-
-        //
-        // POST: /Account/ChangePassword
 
         [Authorize]
         [HttpPost]
@@ -138,19 +128,13 @@ namespace zork.web.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ChangePasswordSuccess
-
         public ActionResult ChangePasswordSuccess()
         {
             return View();
         }
 
-        #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
-            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
-            // a full list of status codes.
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
@@ -184,6 +168,13 @@ namespace zork.web.Controllers
                     return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
         }
-        #endregion
+
+        private bool IsRedirectable(string returnUrl)
+        {
+            return Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                   && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\");
+        }
+
     }
+
 }
