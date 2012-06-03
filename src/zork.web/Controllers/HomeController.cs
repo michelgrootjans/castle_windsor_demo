@@ -1,19 +1,16 @@
 ﻿using System.Web.Mvc;
+using zork.core.Players;
 
 namespace zork.web.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
+        [Authorize]
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            return View();
+            var dto = new GetPlayerInfoQueryHandler().HandleQuery();
+            return View(dto);
         }
     }
 }
