@@ -8,7 +8,7 @@ using Zork.Web.Models;
 // Microsoft generated it
 // I'm trying hard to make it better, but give me some time
 
-namespace zork.web.Controllers
+namespace Zork.Web.Controllers
 {
     public class AccountController : Controller
     {

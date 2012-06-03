@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using Zork.Core.Players;
 
-namespace zork.web.Controllers
+namespace Zork.Web.Controllers
 {
     public class HomeController : Controller
     {
