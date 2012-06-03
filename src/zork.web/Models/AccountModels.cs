@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace zork.web.Models
+namespace Zork.Web.Models
 {
 
     public class ChangePasswordModel

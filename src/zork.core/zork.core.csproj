@@ -8,8 +8,8 @@
     <ProjectGuid>{1D189A93-51D4-471E-A908-9F836CFB2BAD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>zork.core</RootNamespace>
-    <AssemblyName>zork.core</AssemblyName>
+    <RootNamespace>Zork.Core</RootNamespace>
+    <AssemblyName>Zork.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

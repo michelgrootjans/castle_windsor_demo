@@ -1,8 +1,37 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using Zork.Core.Players
+
+@model ViewPlayerInfoDto
+
+@{
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<div id="content">
+    <h2>@Model.Name</h2>
+    <div class="property">
+        Level @Model.Level
+    </div>
+    <div class="property">
+        @Model.HitPoints / @Model.MaxHitPoints HP (@Model.Life%)
+    </div>
+    <div class="property">
+        @Model.Gold GP
+    </div>
+
+    <div id="inventory">
+        <table>
+            <thead>
+                <tr>
+                    <th>Inventory</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Inventory)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

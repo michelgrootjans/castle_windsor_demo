@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zork.web", "zork.web\zork.web.csproj", "{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zork.Web", "zork.web\Zork.Web.csproj", "{FC16C0DC-BDE8-4BB8-B95C-D5214254FCB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zork.core", "zork.core\zork.core.csproj", "{1D189A93-51D4-471E-A908-9F836CFB2BAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zork.Core", "zork.core\Zork.Core.csproj", "{1D189A93-51D4-471E-A908-9F836CFB2BAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

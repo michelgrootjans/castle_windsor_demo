@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
-using zork.core.Memberships;
-using zork.web.Models;
+using Zork.Core.Memberships;
+using Zork.Web.Models;
 
 // note to readers: I am not responsible for this code
 // Microsoft generated it

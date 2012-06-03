@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using zork.core.Players;
+using Zork.Core.Players;
 
 namespace zork.web.Controllers
 {

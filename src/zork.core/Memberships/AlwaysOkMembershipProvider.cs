@@ -1,4 +1,4 @@
-namespace zork.core.Memberships
+namespace Zork.Core.Memberships
 {
     public interface IMembershipProvider
     {
