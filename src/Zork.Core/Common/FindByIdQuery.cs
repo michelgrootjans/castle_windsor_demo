@@ -2,7 +2,7 @@ using System;
 
 namespace Zork.Core.Common
 {
-    public class Repository<T>: IRepository<T>
+    public class FindByIdQuery<T>: IFindByIdQuery<T>
     {
         public T FindById(int id)
         {

@@ -4,8 +4,8 @@ using System.Web.Security;
 using Zork.Core.Memberships;
 using Zork.Web.Models;
 
-// note to readers: I am not responsible for this code
-// Microsoft generated it
+// To code readers: I am not responsible for this code
+// Visual Studio generated it
 // I'm trying hard to make it better, but give me some time
 
 namespace Zork.Web.Controllers

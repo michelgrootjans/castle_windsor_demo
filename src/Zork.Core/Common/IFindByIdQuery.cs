@@ -1,6 +1,6 @@
 namespace Zork.Core.Common
 {
-    public interface IRepository<T>
+    public interface IFindByIdQuery<T>
     {
         T FindById(int id);
     }

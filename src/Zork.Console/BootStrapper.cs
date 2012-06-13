@@ -1,6 +1,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Zork.Core.Common;
+using Zork.Core.Entities;
 using Zork.Core.Memberships;
 
 namespace Zork.ConsoleApp
@@ -18,9 +19,10 @@ namespace Zork.ConsoleApp
         private static void RegisterComponents(IWindsorContainer container)
         {
             container.Register(Component
-                                   .For(typeof(IRepository<>))
-                                   .ImplementedBy(typeof(Repository<>))
+                                   .For(typeof(IFindByIdQuery<>))
+                                   .ImplementedBy(typeof(FindByIdQuery<>))
                                    .LifestylePerThread());
+
 
             container.Register(Component
                                    .For<IMembershipProvider>()
