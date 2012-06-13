@@ -1,9 +1,16 @@
-﻿namespace Zork.Console
+﻿using System;
+using Zork.Core.Memberships;
+
+namespace Zork.ConsoleApp
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            var container = BootStrapper.GetContainer();
+            var provider = container.Resolve<IMembershipProvider>();
+            provider.IsValidUser("scott", "tiger");
+            Console.ReadLine();
         }
     }
 }

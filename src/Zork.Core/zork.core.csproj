@@ -36,7 +36,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\IRepository.cs" />
+    <Compile Include="Common\Repository.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Memberships\AlwaysOkMembershipProvider.cs" />
+    <Compile Include="Memberships\IMembershipProvider.cs" />
     <Compile Include="Players\GetPlayerInfoQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
