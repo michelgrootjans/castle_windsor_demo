@@ -13,12 +13,11 @@ namespace Zork.Core.Memberships
             this.userQuery = userQuery;
         }
 
-
         public bool IsValidUser(string userName, string password)
         {
             userQuery.FindById(1);
 
-            Console.WriteLine("Yep, '{0}'/'{1}' is a valid user", userName, password);
+            Console.WriteLine("'{0}'/'{1}' is a valid user", userName, password);
             return true;
         }
 
