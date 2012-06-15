@@ -14,7 +14,6 @@ namespace Zork.ConsoleApp
             {
                 Console.WriteLine(e);
             }
-            Console.ReadLine();
         }
     }
 }

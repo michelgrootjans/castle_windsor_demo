@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Zork.Core.Tasks;
 
-namespace Zork.Core.Tasks
+namespace Zork.Core.Common
 {
     public interface ITaskMenu : IEnumerable<ITask>
     {

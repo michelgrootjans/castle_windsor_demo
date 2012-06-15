@@ -2,7 +2,6 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Zork.Core.Common;
-using Zork.Core.Entities;
 using Zork.Core.Memberships;
 using Zork.Core.Tasks;
 
@@ -39,7 +38,6 @@ namespace Zork.ConsoleApp
                                    .LifestylePerThread());
 
  
-            // Register components
             container.Register(Classes.FromThisAssembly().BasedOn<ITask>().WithServiceAllInterfaces());
             container.Register(Component.For<ITaskMenu>().ImplementedBy<TaskMenu>());
 

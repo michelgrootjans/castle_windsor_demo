@@ -1,15 +1,15 @@
 ﻿using System;
 using Zork.ConsoleApp.Utilities;
+using Zork.Core.Common;
 using Zork.Core.Entities;
 using Zork.Core.Memberships;
-using Zork.Core.Tasks;
 
 namespace Zork.ConsoleApp
 {
     internal class Game
     {
         private readonly IMembershipProvider membershipProvider;
-        private ITaskMenu tasks;
+        private readonly ITaskMenu tasks;
 
         public Game()
         {
@@ -52,17 +52,29 @@ namespace Zork.ConsoleApp
 
         private void Play()
         {
-            var player = new Player();
-            while(player.IsAlive)
+            var userWantsToPlay = true;
+            while (userWantsToPlay)
             {
-                Console.WriteLine("You are in an open field, west of a big white house withe a boarded front door.");
-                Console.WriteLine("What do you want to do:");
-                foreach (var task in tasks)
-                    Console.WriteLine("{0}: {1}", task.Code, task.Description);
-                Console.Write("> ");
-                var taskCode = Console.ReadLine();
-                player.Kill();
+                var player = new Player();
+
+                while (player.IsAlive)
+                {
+                    Console.WriteLine("You are in an open field, west of a big white house withe a boarded front door.");
+                    Console.WriteLine("What do you want to do:");
+                    foreach (var task in tasks)
+                        Console.WriteLine(" {0}: {1}", task.Code, task.Description);
+                    Console.Write("> ");
+                    var taskCode = Console.ReadLine();
+                    player.Kill();
+                }
+
+                Console.WriteLine("You died...");
+                Console.WriteLine();
+                Console.Write("Do you want to try again (y/n)?");
+                var answer = Console.ReadLine();
+                userWantsToPlay = (answer == null) ? false : answer.ToLower().StartsWith("y");
             }
+
         }
     }
 }
