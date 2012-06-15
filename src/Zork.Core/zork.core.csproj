@@ -41,10 +41,10 @@
     <Compile Include="Common\FindByIdQuery.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Memberships\AlwaysOkMembershipProvider.cs" />
-    <Compile Include="Memberships\DatabaseMembershipProvider.cs" />
+    <Compile Include="Memberships\AlwaysOkUserValidator.cs" />
+    <Compile Include="Memberships\DatabaseUserValidator.cs" />
     <Compile Include="Memberships\FindUserByUsernameAndPasswordQuery.cs" />
-    <Compile Include="Memberships\IMembershipProvider.cs" />
+    <Compile Include="Memberships\IUserValidator.cs" />
     <Compile Include="Common\IQuery.cs" />
     <Compile Include="Players\GetPlayerInfoQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

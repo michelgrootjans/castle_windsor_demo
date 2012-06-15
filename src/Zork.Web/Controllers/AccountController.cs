@@ -12,11 +12,11 @@ namespace Zork.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IMembershipProvider membershipProvider;
+        private readonly IUserValidator userValidator;
 
         public AccountController()
         {
-            membershipProvider = new AlwaysOkMembershipProvider();
+            userValidator = new AlwaysOkUserValidator();
         }
 
         public ActionResult LogOn()
@@ -29,7 +29,7 @@ namespace Zork.Web.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (membershipProvider.IsValidUser(model.UserName, model.Password))
+            if (userValidator.IsValidUser(model.UserName, model.Password))
             {
                 FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                 if (IsRedirectable(returnUrl)) 
@@ -61,7 +61,7 @@ namespace Zork.Web.Controllers
 
             try
             {
-                membershipProvider.RegisterNewUser(model.UserName, model.Password, model.Email);
+                userValidator.RegisterNewUser(model.UserName, model.Password, model.Email);
                 FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                 return RedirectToAction("Index", "Home");
             }
@@ -87,7 +87,7 @@ namespace Zork.Web.Controllers
 
             try
             {
-                membershipProvider.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
+                userValidator.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
                 return RedirectToAction("ChangePasswordSuccess");
             }
             catch

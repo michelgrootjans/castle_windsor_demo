@@ -33,8 +33,8 @@ namespace Zork.ConsoleApp
                                    .LifestylePerThread());
 
             container.Register(Component
-                                   .For<IMembershipProvider>()
-                                   .ImplementedBy<DatabaseMembershipProvider>()
+                                   .For<IUserValidator>()
+                                   .ImplementedBy<DatabaseUserValidator>()
                                    .LifestylePerThread());
 
  

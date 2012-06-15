@@ -8,13 +8,13 @@ namespace Zork.ConsoleApp
 {
     internal class Game
     {
-        private readonly IMembershipProvider membershipProvider;
+        private readonly IUserValidator userValidator;
         private readonly ITaskMenu tasks;
 
         public Game()
         {
             var container = BootStrapper.GetContainer();
-            membershipProvider = container.Resolve<IMembershipProvider>();
+            userValidator = container.Resolve<IUserValidator>();
             tasks = container.Resolve<ITaskMenu>();
         }
 
@@ -43,7 +43,7 @@ namespace Zork.ConsoleApp
                 Console.Write("Password: ");
                 var password = ConsolePasswordReader.ReadLine();
 
-                userIsValid = membershipProvider.IsValidUser(username, password);
+                userIsValid = userValidator.IsValidUser(username, password);
 
                 if (!userIsValid)
                     Console.WriteLine("Unknown user, please try again...");
