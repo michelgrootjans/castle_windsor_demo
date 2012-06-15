@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Memberships\AlwaysOkMembershipProvider.cs" />
     <Compile Include="Memberships\DatabaseMembershipProvider.cs" />

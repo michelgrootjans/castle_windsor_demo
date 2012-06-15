@@ -1,5 +1,6 @@
 ﻿using System;
 using Zork.ConsoleApp.Utilities;
+using Zork.Core.Entities;
 using Zork.Core.Memberships;
 using Zork.Core.Tasks;
 
@@ -51,14 +52,16 @@ namespace Zork.ConsoleApp
 
         private void Play()
         {
-            var playerIsAlive = true;
-            while(playerIsAlive)
+            var player = new Player();
+            while(player.IsAlive)
             {
                 Console.WriteLine("You are in an open field, west of a big white house withe a boarded front door.");
                 Console.WriteLine("What do you want to do:");
                 foreach (var task in tasks)
                     Console.WriteLine("{0}: {1}", task.Code, task.Description);
-                playerIsAlive = false;
+                Console.Write("> ");
+                var taskCode = Console.ReadLine();
+                player.Kill();
             }
         }
     }
