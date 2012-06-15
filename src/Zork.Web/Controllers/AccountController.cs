@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using Zork.Core.Memberships;
 using Zork.Web.Models;
@@ -47,59 +46,6 @@ namespace Zork.Web.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Register(RegisterModel model)
-        {
-            if (!ModelState.IsValid) return View(model);
-
-            try
-            {
-                userValidator.RegisterNewUser(model.UserName, model.Password, model.Email);
-                FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                return RedirectToAction("Index", "Home");
-            }
-            catch (Exception e)
-            {
-                ModelState.AddModelError("", e.Message);
-                return View(model);
-            }
-            
-        }
-
-        [Authorize]
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordModel model)
-        {
-            if (!ModelState.IsValid) return View(model);
-
-            try
-            {
-                userValidator.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
-                return RedirectToAction("ChangePasswordSuccess");
-            }
-            catch
-            {
-                ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-                return View(model);
-            }
-        }
-
-        public ActionResult ChangePasswordSuccess()
-        {
-            return View();
         }
 
         private bool IsRedirectable(string returnUrl)
