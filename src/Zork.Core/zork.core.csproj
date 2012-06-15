@@ -41,7 +41,9 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Memberships\AlwaysOkMembershipProvider.cs" />
     <Compile Include="Memberships\DatabaseMembershipProvider.cs" />
+    <Compile Include="Memberships\FindUserByUsernameAndPasswordQuery.cs" />
     <Compile Include="Memberships\IMembershipProvider.cs" />
+    <Compile Include="Common\IQuery.cs" />
     <Compile Include="Players\GetPlayerInfoQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

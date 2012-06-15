@@ -23,6 +23,10 @@ namespace Zork.ConsoleApp
                                    .ImplementedBy(typeof(FindByIdQuery<>))
                                    .LifestylePerThread());
 
+            container.Register(Component
+                                   .For<IFindUserByUsernameAndPasswordQuery>()
+                                   .ImplementedBy<FindUserByUsernameAndPasswordQuery>()
+                                   .LifestylePerThread());
 
             container.Register(Component
                                    .For<IMembershipProvider>()

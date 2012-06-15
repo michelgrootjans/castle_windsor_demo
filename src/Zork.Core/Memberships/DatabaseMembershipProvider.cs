@@ -1,21 +1,19 @@
 ﻿using System;
-using Zork.Core.Common;
-using Zork.Core.Entities;
 
 namespace Zork.Core.Memberships
 {
     public class DatabaseMembershipProvider : IMembershipProvider
     {
-        private readonly IFindByIdQuery<User> userQuery;
+        private readonly IFindUserByUsernameAndPasswordQuery userQuery;
 
-        public DatabaseMembershipProvider(IFindByIdQuery<User> userQuery)
+        public DatabaseMembershipProvider(IFindUserByUsernameAndPasswordQuery userQuery)
         {
             this.userQuery = userQuery;
         }
 
         public bool IsValidUser(string userName, string password)
         {
-            userQuery.FindById(1);
+            userQuery.Find(userName, password);
 
             Console.WriteLine("'{0}' is a valid user", userName);
             return true;
