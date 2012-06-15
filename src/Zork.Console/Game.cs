@@ -3,6 +3,7 @@ using Zork.ConsoleApp.Utilities;
 using Zork.Core.Common;
 using Zork.Core.Entities;
 using Zork.Core.Memberships;
+using System.Linq;
 
 namespace Zork.ConsoleApp
 {
@@ -54,29 +55,58 @@ namespace Zork.ConsoleApp
 
         private void Play()
         {
-            var userWantsToPlay = true;
-            while (userWantsToPlay)
+            do
             {
-                var player = new Player();
+                PlayNewGame();
+            } while (UserWantsToPlay());
+        }
 
-                while (player.IsAlive)
-                {
-                    Console.WriteLine("You are in an open field, west of a big white house withe a boarded front door.");
-                    Console.WriteLine("What do you want to do:");
-                    foreach (var task in tasks)
-                        Console.WriteLine(" {0}: {1}", task.Code, task.Description);
-                    Console.Write("> ");
-                    var taskCode = Console.ReadLine();
-                    player.Kill();
-                }
+        private void PlayNewGame()
+        {
+            var character = new Character();
+            do
+            {
+                PlayGameWith(character);
+            } while (character.IsAlive);
 
-                Console.WriteLine("You died...");
-                Console.WriteLine();
-                Console.Write("Do you want to try again (y/n)?");
-                var answer = Console.ReadLine();
-                userWantsToPlay = (answer == null) ? false : answer.ToLower().StartsWith("y");
-            }
+            Console.WriteLine("You died...");
+            Console.WriteLine();
+        }
 
+        private void PlayGameWith(Character character)
+        {
+            Console.WriteLine("You are in an open field, west of a big white house withe a boarded front door.");
+            Console.WriteLine("What do you want to do:");
+            Print(tasks);
+            var task = ChooseTaskFrom(tasks);
+            task.ExecuteWith(character);
+        }
+
+        private ITask ChooseTaskFrom(ITaskMenu taskMenu)
+        {
+            ITask task;
+            do
+            {
+                Console.Write("> ");
+                var taskCode = Console.ReadLine();
+                task = taskMenu.FirstOrDefault(t => t.Code == taskCode);
+            } while (task == null);
+            return task;
+        }
+
+        private void Print(ITaskMenu taskMenu)
+        {
+            foreach (var task in taskMenu)
+                Console.WriteLine(" {0}: {1}", task.Code, task.Description);
+        }
+
+        private bool UserWantsToPlay()
+        {
+            bool userWantsToPlay;
+            Console.Write("Do you want to try again (y/n)?");
+            var answer = Console.ReadLine();
+            userWantsToPlay = (answer == null) ? false : answer.ToLower().StartsWith("y");
+            return userWantsToPlay;
         }
     }
 }

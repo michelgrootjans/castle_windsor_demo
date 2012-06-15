@@ -1,10 +1,10 @@
 namespace Zork.Core.Entities
 {
-    public class Player
+    public class Character
     {
         public bool IsAlive { get; private set; }
 
-        public Player()
+        public Character()
         {
             IsAlive = true;
         }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Zork.Core.Tasks;
 
 namespace Zork.Core.Common
 {
@@ -18,6 +17,7 @@ namespace Zork.Core.Common
         {
             this.tasks = new List<ITask>
                              {
+                                 new CommitSuicide(),
                                  new GetInABarFightTask()
                              };
         }

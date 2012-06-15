@@ -3,7 +3,6 @@ using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Zork.Core.Common;
 using Zork.Core.Memberships;
-using Zork.Core.Tasks;
 
 namespace Zork.ConsoleApp
 {
