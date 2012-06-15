@@ -17,7 +17,7 @@ namespace Zork.Core.Memberships
         {
             userQuery.FindById(1);
 
-            Console.WriteLine("'{0}'/'{1}' is a valid user", userName, password);
+            Console.WriteLine("'{0}' is a valid user", userName);
             return true;
         }
 
