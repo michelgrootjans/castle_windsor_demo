@@ -14,7 +14,8 @@ namespace Zork.Core.Memberships
         {
             Console.Write("Looking for '{0}' in the database...", username);
             Thread.Sleep(2000);
-            Console.WriteLine("there (s)he is");
+            Console.WriteLine("there you are!");
+            Thread.Sleep(500);
         }
     }
 }

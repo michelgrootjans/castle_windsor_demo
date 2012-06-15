@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GetInABarFightTask.cs" />
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
     <Compile Include="Entities\Player.cs" />

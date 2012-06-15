@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Zork.Core.Tasks;
@@ -11,10 +12,18 @@ namespace Zork.Core.Common
 
     public class TaskMenu : ITaskMenu
     {
+        private readonly IEnumerable<ITask> tasks;
+
+        public TaskMenu()
+        {
+            this.tasks = new List<ITask>
+                             {
+                                 new GetInABarFightTask()
+                             };
+        }
 
         public IEnumerator<ITask> GetEnumerator()
         {
-            var tasks = new List<ITask>();
             return tasks.GetEnumerator();
         }
 

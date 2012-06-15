@@ -48,6 +48,8 @@ namespace Zork.ConsoleApp
                 if (!userIsValid)
                     Console.WriteLine("Unknown user, please try again...");
             }
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         private void Play()
