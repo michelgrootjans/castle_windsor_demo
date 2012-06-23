@@ -1,6 +1,6 @@
 using System;
 
-namespace Zork.Core.Common
+namespace Zork.Core
 {
     public class FindByIdQuery<T>: IFindByIdQuery<T>
     {

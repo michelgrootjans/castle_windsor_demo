@@ -1,37 +1,24 @@
-﻿@using Zork.Core.Players
+﻿@model PlayerInfoDto
 
-@model ViewPlayerInfoDto
-
-@{
-}
-
-<div id="content">
-    <h2>@Model.Name</h2>
-    <div class="property">
-        Level @Model.Level
-    </div>
-    <div class="property">
-        @Model.HitPoints / @Model.MaxHitPoints HP (@Model.Life%)
-    </div>
-    <div class="property">
-        @Model.Gold GP
-    </div>
-
-    <div id="inventory">
-        <table>
-            <thead>
-                <tr>
-                    <th>Inventory</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach (var item in Model.Inventory)
+<h2>@Model.Name</h2>
+<description>@Model.TaskDescription</description>
+What do you want to do?
+@using (Html.BeginForm("Choose", "Home"))
+{
+    <div>
+        <fieldset>
+            <legend>What do you want to do?</legend>
+            
+            @foreach (var choice in Model.Choices)
             {
-                <tr>
-                    <td>@item.Name</td>
-                </tr>
+                <div class="editor-field">
+                    @Html.RadioButton("choice", choice.Code)
+                    @choice.Text
+                </div>
             }
-            </tbody>
-        </table>
+            <p>
+                <input type="submit" value="Go on" />
+            </p>
+        </fieldset>
     </div>
-</div>
+}

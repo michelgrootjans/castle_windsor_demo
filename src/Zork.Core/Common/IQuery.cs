@@ -1,4 +1,4 @@
-﻿namespace Zork.Core.Memberships
+﻿namespace Zork.Core
 {
     public interface IQuery
     {

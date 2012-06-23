@@ -1,6 +1,4 @@
-using Zork.Core.Memberships;
-
-namespace Zork.Core.Common
+namespace Zork.Core
 {
     public interface IFindByIdQuery<T> : IQuery
     {

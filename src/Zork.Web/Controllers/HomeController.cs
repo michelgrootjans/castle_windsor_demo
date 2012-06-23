@@ -1,16 +1,22 @@
 ﻿using System.Web.Mvc;
-using Zork.Core.Players;
+using Zork.Core;
 
 namespace Zork.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         [HttpGet]
-        [Authorize]
         public ActionResult Index()
         {
-            var dto = new GetPlayerInfoQueryHandler().HandleQuery();
+            var dto = new GetCharacterInfoQueryHandler().GetCharacterOf(User.Identity.Name);
             return View(dto);
+        }
+
+        [HttpPost]
+        public ActionResult Choose(UserChoiceCommand command)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

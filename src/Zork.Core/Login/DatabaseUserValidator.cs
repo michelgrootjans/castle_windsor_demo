@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace Zork.Core.Memberships
+namespace Zork.Core
 {
     public class DatabaseUserValidator : IUserValidator
     {
         private readonly IFindUserByUsernameAndPasswordQuery userQuery;
 
-        public DatabaseUserValidator(IFindUserByUsernameAndPasswordQuery userQuery)
+        public DatabaseUserValidator()
         {
-            this.userQuery = userQuery;
+            userQuery = new FindUserByUsernameAndPasswordQuery();
         }
 
-        public bool IsValidUser(string userName, string password)
+        public bool IsValid(string userName, string password)
         {
             userQuery.Find(userName, password);
 

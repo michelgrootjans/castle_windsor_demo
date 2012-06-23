@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace Zork.Core.Memberships
+namespace Zork.Core
 {
     public interface IFindUserByUsernameAndPasswordQuery : IQuery
     {

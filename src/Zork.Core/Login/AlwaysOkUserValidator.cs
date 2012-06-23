@@ -1,8 +1,8 @@
-namespace Zork.Core.Memberships
+namespace Zork.Core
 {
     public class AlwaysOkUserValidator : IUserValidator
     {
-        public bool IsValidUser(string userName, string password)
+        public bool IsValid(string userName, string password)
         {
             return true;
         }

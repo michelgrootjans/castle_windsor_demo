@@ -36,21 +36,18 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\GetInABarFightTask.cs" />
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
-    <Compile Include="Entities\Character.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Memberships\AlwaysOkUserValidator.cs" />
-    <Compile Include="Memberships\DatabaseUserValidator.cs" />
-    <Compile Include="Memberships\FindUserByUsernameAndPasswordQuery.cs" />
-    <Compile Include="Memberships\IUserValidator.cs" />
+    <Compile Include="Login\AlwaysOkUserValidator.cs" />
+    <Compile Include="Login\DatabaseUserValidator.cs" />
+    <Compile Include="Login\FindUserByUsernameAndPasswordQuery.cs" />
+    <Compile Include="Login\IUserValidator.cs" />
     <Compile Include="Common\IQuery.cs" />
-    <Compile Include="Players\GetPlayerInfoQueryHandler.cs" />
-    <Compile Include="Players\IGetPlayerInfoQueryHandler.cs" />
+    <Compile Include="Character\GetCharacterInfoQueryHandler.cs" />
+    <Compile Include="Character\IGetCharacterInfoQueryHandler.cs" />
+    <Compile Include="Character\IUserChoiceHandler.cs" />
+    <Compile Include="Character\UserChoiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\ITask.cs" />
-    <Compile Include="Common\ITaskMenu.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
