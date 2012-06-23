@@ -18,9 +18,7 @@ namespace Zork.Core.Characters
 
         public Character GetCharacterOf(string userName)
         {
-            if (users.ContainsKey(userName)) 
-                return users[userName];
-            return null;
+            return users.ContainsKey(userName) ? users[userName] : null;
         }
     }
 }
