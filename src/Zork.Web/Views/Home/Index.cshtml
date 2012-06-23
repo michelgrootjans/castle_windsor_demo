@@ -1,8 +1,7 @@
-﻿@model PlayerInfoDto
+﻿@model CharacterInfoDto
 
 <h2>@Model.Name</h2>
-<description>@Model.TaskDescription</description>
-What do you want to do?
+<div class="task">@Model.TaskDescription</div>
 @using (Html.BeginForm("Choose", "Home"))
 {
     <div>

@@ -36,6 +36,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\CharacterRepository.cs" />
+    <Compile Include="Characters\CreateCharacterHandler.cs" />
+    <Compile Include="Characters\ICharacterRepository.cs" />
+    <Compile Include="Characters\ICreateCharacterHandler.cs" />
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
     <Compile Include="Login\AlwaysOkUserValidator.cs" />
@@ -43,10 +48,10 @@
     <Compile Include="Login\FindUserByUsernameAndPasswordQuery.cs" />
     <Compile Include="Login\IUserValidator.cs" />
     <Compile Include="Common\IQuery.cs" />
-    <Compile Include="Character\GetCharacterInfoQueryHandler.cs" />
-    <Compile Include="Character\IGetCharacterInfoQueryHandler.cs" />
-    <Compile Include="Character\IUserChoiceHandler.cs" />
-    <Compile Include="Character\UserChoiceHandler.cs" />
+    <Compile Include="Characters\GetCharacterInfoQueryHandler.cs" />
+    <Compile Include="Characters\IGetCharacterInfoQueryHandler.cs" />
+    <Compile Include="Characters\IUserChoiceHandler.cs" />
+    <Compile Include="Characters\UserChoiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

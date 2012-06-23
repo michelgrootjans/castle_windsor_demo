@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Zork.Core
+namespace Zork.Core.Characters
 {
     public interface IGetCharacterInfoQueryHandler
     {

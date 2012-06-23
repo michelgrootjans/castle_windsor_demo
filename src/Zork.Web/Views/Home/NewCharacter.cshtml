@@ -1,0 +1,21 @@
+﻿<h1>Create new character</h1>
+
+@using (Html.BeginForm("CreateCharacter", "Home"))
+{
+    <div>
+        <fieldset>
+            <legend>Character Information</legend>
+
+            <div class="editor-label">
+                @Html.Label("CharacterName")
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("CharacterName")
+            </div>
+
+            <p>
+                <input type="submit" value="Create Character" />
+            </p>
+        </fieldset>
+    </div>
+}
