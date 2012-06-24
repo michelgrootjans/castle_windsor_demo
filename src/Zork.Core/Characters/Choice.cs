@@ -2,7 +2,7 @@
 
 namespace Zork.Core.Characters
 {
-    public class Choice : IChoice, IExecutableChoice
+    public class Choice : IChoiceInfo, IExecutableChoice
     {
         private readonly IExecutableTask task;
         public string Code { get; private set; }

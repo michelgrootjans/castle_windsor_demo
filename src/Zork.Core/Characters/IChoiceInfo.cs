@@ -1,6 +1,6 @@
 ﻿namespace Zork.Core.Characters
 {
-    public interface IChoice
+    public interface IChoiceInfo
     {
         string Code { get; }
         string Description { get; }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class AttackTask : ITask, IExecutableTask
+    public class AttackTask : ITaskInfo, IExecutableTask
     {
-        public AttackTask(IMonster monster, ITask task)
+        public AttackTask(IMonster monster, ITaskInfo task)
         {
             throw new NotImplementedException();
         }
@@ -15,7 +15,7 @@ namespace Zork.Core.Characters.Tasks
             get { throw new NotImplementedException(); }
         }
 
-        public IEnumerable<IChoice> Choices
+        public IEnumerable<IChoiceInfo> Choices
         {
             get { throw new NotImplementedException(); }
         }

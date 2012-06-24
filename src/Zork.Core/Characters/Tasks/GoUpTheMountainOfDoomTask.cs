@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class GoUpTheMountainOfDoomTask : ITask, IExecutableTask
+    public class GoUpTheMountainOfDoomTask : ITaskInfo, IExecutableTask
     {
         private readonly IMonster monster;
         private readonly IExecutableTask originalTask;
-        private List<IChoice> choices;
+        private List<IChoiceInfo> choices;
 
         public GoUpTheMountainOfDoomTask(IExecutableTask originalTask)
         {
@@ -28,7 +28,7 @@ namespace Zork.Core.Characters.Tasks
             }
         }
 
-        public IEnumerable<IChoice> Choices
+        public IEnumerable<IChoiceInfo> Choices
         {
             get
             {

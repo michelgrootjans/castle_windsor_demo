@@ -31,7 +31,7 @@ namespace Zork.Core.Characters
                        };
         }
 
-        private PlayerChoiceDto Map(IChoice choice)
+        private PlayerChoiceDto Map(IChoiceInfo choice)
         {
             return new PlayerChoiceDto{Code = choice.Code, Text = choice.Description};
         }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class EnterDarkForestTask : ITask, IExecutableTask
+    public class EnterDarkForestTask : ITaskInfo, IExecutableTask
     {
-        private readonly ITask originalTask;
+        private readonly ITaskInfo originalTask;
 
-        public EnterDarkForestTask(ITask originalTask)
+        public EnterDarkForestTask(ITaskInfo originalTask)
         {
             this.originalTask = originalTask;
         }
@@ -17,7 +17,7 @@ namespace Zork.Core.Characters.Tasks
             get { throw new NotImplementedException(); }
         }
 
-        public IEnumerable<IChoice> Choices
+        public IEnumerable<IChoiceInfo> Choices
         {
             get { throw new NotImplementedException(); }
         }

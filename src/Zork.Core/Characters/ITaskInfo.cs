@@ -2,9 +2,9 @@
 
 namespace Zork.Core.Characters
 {
-    public interface ITask
+    public interface ITaskInfo
     {
         string Description { get; }
-        IEnumerable<IChoice> Choices { get; }
+        IEnumerable<IChoiceInfo> Choices { get; }
     }
 }
