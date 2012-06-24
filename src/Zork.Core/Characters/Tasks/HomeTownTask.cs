@@ -13,9 +13,9 @@ namespace Zork.Core.Characters.Tasks
         {
             get
             {
-                yield return new Choice("D", "Go to the local tavern and have a drink.", new EnterThePrancingPoneyTask(this));
-                yield return new Choice("F", "Enter the forbidden forest.", new EnterForbiddenForestTask(this));
-                yield return new Choice("M", "Go up the mountain of doom.", new GoUpTheMountainOfDoomTask(this));
+                yield return new Choice("D", "Go to the the Prancing Poney and have a drink.", new EnterThePrancingPoneyTask(this));
+                yield return new Choice("F", "Enter the Forbidden Forest.", new EnterForbiddenForestTask(this));
+                yield return new Choice("M", "Go up the Mountain of Doom.", new GoUpTheMountainOfDoomTask(this));
             }
         }
 
