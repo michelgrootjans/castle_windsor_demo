@@ -7,10 +7,21 @@ namespace Zork.Web.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private readonly GetCharacterInfoQueryHandler characterInfo;
+        private readonly ICreateCharacterHandler createCharacter;
+        private readonly IUserChoiceHandler choiceHandler;
+
+        public HomeController()
+        {
+            characterInfo = new GetCharacterInfoQueryHandler();
+            createCharacter = new CreateCharacterHandler();
+            choiceHandler = new UserChoiceHandler();
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
-            var character = new GetCharacterInfoQueryHandler().GetCharacterOf(User.Identity.Name);
+            var character = characterInfo.GetCharacterOf(User.Identity.Name);
             if(character == null)
                 return RedirectToAction("NewCharacter");
             if (!character.IsAlive)
@@ -35,16 +46,15 @@ namespace Zork.Web.Controllers
         public ActionResult CreateCharacter(CreateCharacterCommand command)
         {
             command.UserName = User.Identity.Name;
-            ICreateCharacterHandler handler = new CreateCharacterHandler();
-            handler.Execute(command);
+            createCharacter.Execute(command);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult Choose(UserChoiceCommand command)
         {
-            IUserChoiceHandler handler = new UserChoiceHandler();
-            handler.Execute(command);
+            command.UserName = User.Identity.Name;
+            choiceHandler.Execute(command);
             return RedirectToAction("Index");
         }
     }
