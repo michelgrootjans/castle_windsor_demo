@@ -36,18 +36,4 @@ namespace Zork.Core.Characters
             return new PlayerChoiceDto{Code = choice.Code, Text = choice.Description};
         }
     }
-
-
-    public class Choice : IChoice
-    {
-        public string Code { get; private set; }
-        public string Description { get; private set; }
-
-        public Choice(string code, string description)
-        {
-            Code = code;
-            Description = description;
-        }
-    }
-
 }

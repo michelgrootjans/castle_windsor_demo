@@ -36,7 +36,7 @@ namespace Zork.ConsoleApp
                     string nextStep = GetNextStep(player);
                     if (nextStep == "quit") return;
 
-                    choiceHandler.Execute(new UserChoiceCommand { Choice = nextStep });
+                    choiceHandler.Execute(new UserChoiceCommand {UserName = username, Choice = nextStep});
                     player = characterQuery.GetCharacterOf(username);
                 }
                 Console.WriteLine("You are dead.");

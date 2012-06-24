@@ -1,54 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
+using Zork.Core.Characters.Tasks;
 
 namespace Zork.Core.Characters
 {
-    public class Character
+    public class Character : ITaskHolder
     {
-        private ITask currentTask;
-        private bool isAlive;
+        private IExecutableTask currentTask;
 
         public Character(string name)
         {
             Name = name;
-            isAlive = true;
+            IsAlive = true;
         }
 
-        public bool IsAlive
-        {
-            get { return isAlive; }
-        }
+        public bool IsAlive { get; private set; }
 
         public string Name { get; private set; }
 
-        public ITask CurrentTask
+        public IExecutableTask CurrentTask
         {
             get { return currentTask ?? (currentTask = new DefaultTask()); }
         }
-    }
 
-    public interface IChoice
-    {
-        string Code { get; }
-        string Description { get; }
-    }
-
-    public interface ITask
-    {
-        string Description { get; }
-        IEnumerable<IChoice> Choices { get; }
-    }
-
-    public class DefaultTask : ITask
-    {
-        public string Description
+        public void ExecuteChoice(string code)
         {
-            get { return "You are in your home town."; }
+            CurrentTask.Execute(code, this);
         }
 
-        public IEnumerable<IChoice> Choices
+        public void SetTask(IExecutableTask task)
         {
-            get { yield return new Choice("B", "Go to the local tavern and have a drink."); }
+            currentTask = task;
         }
+    }
+
+    public interface IExecutableTask : ITask
+    {
+        void Execute(string code, ITaskHolder character);
+    }
+
+    public interface ITaskHolder
+    {
+        void SetTask(IExecutableTask task);
     }
 }

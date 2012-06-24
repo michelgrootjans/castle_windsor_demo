@@ -7,6 +7,7 @@ namespace Zork.Core
 
     public class UserChoiceCommand
     {
+        public string UserName { get; set; }
         public string Choice { get; set; }
     }
 }

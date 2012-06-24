@@ -38,9 +38,17 @@
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\CharacterRepository.cs" />
+    <Compile Include="Characters\Choice.cs" />
     <Compile Include="Characters\CreateCharacterHandler.cs" />
+    <Compile Include="Characters\IChoice.cs" />
+    <Compile Include="Characters\ITask.cs" />
+    <Compile Include="Characters\Tasks\AttackTask.cs" />
+    <Compile Include="Characters\Tasks\DefaultTask.cs" />
     <Compile Include="Characters\ICharacterRepository.cs" />
     <Compile Include="Characters\ICreateCharacterHandler.cs" />
+    <Compile Include="Characters\Tasks\EnterDarkForestTask.cs" />
+    <Compile Include="Characters\Tasks\EnterThePrancingPoneyTask.cs" />
+    <Compile Include="Characters\Tasks\GoUpTheMountainOfDoomTask.cs" />
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
     <Compile Include="Login\AlwaysOkUserValidator.cs" />
