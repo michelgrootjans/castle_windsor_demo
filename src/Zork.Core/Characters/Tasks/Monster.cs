@@ -6,13 +6,15 @@
         public int Health { get; private set; }
         public int AttackPoints { get; private set; }
         public int DefensePoints { get; private set; }
+        public int Gold { get; private set; }
 
-        protected Monster(string name, int health, int attackPoints, int defensePoints)
+        protected Monster(string name, int health, int attackPoints, int defensePoints, int gold)
         {
             Name = name;
             Health = health;
             AttackPoints = attackPoints;
             DefensePoints = defensePoints;
+            Gold = gold;
         }
 
         public bool IsAlive

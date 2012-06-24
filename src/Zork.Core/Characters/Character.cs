@@ -41,7 +41,11 @@ namespace Zork.Core.Characters
             var damageToMonster = rnd.Next(AttackPoints) - rnd.Next(monster.DefensePoints);
             if(damageToMonster > 0)
                 monster.TakeHit(damageToMonster);
-            if (monster.IsDead) return;
+            if (monster.IsDead)
+            {
+                Gold += monster.Gold;
+                return;
+            }
             
             var damageToCharacter = rnd.Next(monster.AttackPoints) - rnd.Next(DefensePoints);
             if(damageToCharacter > 0)

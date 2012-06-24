@@ -4,11 +4,10 @@ using Zork.Core.Characters.Monsters;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class GoUpTheMountainOfDoomTask : ITaskInfo, IExecutableTask
+    public class GoUpTheMountainOfDoomTask : Task
     {
         private readonly IMonster monster;
         private readonly IExecutableTask originalTask;
-        private List<IChoiceInfo> choices;
 
         public GoUpTheMountainOfDoomTask(IExecutableTask originalTask)
         {
@@ -16,7 +15,7 @@ namespace Zork.Core.Characters.Tasks
             monster = new GrumpyDatabaseAdministrator();
         }
 
-        public string Description
+        public override string Description
         {
             get
             {
@@ -29,7 +28,7 @@ namespace Zork.Core.Characters.Tasks
             }
         }
 
-        public IEnumerable<IChoiceInfo> Choices
+        public override IEnumerable<IChoiceInfo> Choices
         {
             get
             {
@@ -38,16 +37,12 @@ namespace Zork.Core.Characters.Tasks
                 yield return new Choice("B", "Go back", originalTask);
             }
         }
-
-        public IExecutableTask Execute(string code, Character character)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public interface IMonster
     {
         string Name { get; }
+        int Gold { get; }
         int Health { get; }
         int AttackPoints { get; }
         int DefensePoints { get; }
