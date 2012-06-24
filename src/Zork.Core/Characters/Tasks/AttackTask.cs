@@ -1,28 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class AttackTask : ITaskInfo, IExecutableTask
+    public class AttackTask : Task
     {
-        public AttackTask(IMonster monster, ITaskInfo task)
+        private readonly IMonster monster;
+        private readonly IExecutableTask originalTask;
+
+        public AttackTask(IMonster monster, IExecutableTask originalTask)
         {
-            throw new NotImplementedException();
+            this.monster = monster;
+            this.originalTask = originalTask;
         }
 
-        public string Description
+        public override string Description
         {
-            get { throw new NotImplementedException(); }
+            get { return string.Format("You are in a fight with a {0}(HP: {1}).", monster.Name, monster.Health); }
         }
 
-        public IEnumerable<IChoiceInfo> Choices
+        public override IEnumerable<IChoiceInfo> Choices
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                yield return new Choice("A", "Continue the fight", this);
+                yield return new Choice("B", "Retreat", originalTask);
+            }
         }
 
-        public void Execute(string code, ITaskHolder character)
+        public override IExecutableTask Execute(string code, Character character)
         {
-            throw new NotImplementedException();
+            character.Fight(monster);
+            if (monster.IsDead) return originalTask;
+            var choice = FindChoice(code);
+            return choice.Execute();
         }
     }
 }

@@ -4,5 +4,6 @@
     {
         string Code { get; }
         string Description { get; }
+        bool Matches(string code);
     }
 }

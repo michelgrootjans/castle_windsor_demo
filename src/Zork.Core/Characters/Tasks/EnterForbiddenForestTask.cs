@@ -3,28 +3,24 @@ using System.Collections.Generic;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class EnterDarkForestTask : ITaskInfo, IExecutableTask
+    public class EnterForbiddenForestTask : Task
     {
         private readonly ITaskInfo originalTask;
 
-        public EnterDarkForestTask(ITaskInfo originalTask)
+        public EnterForbiddenForestTask(ITaskInfo originalTask)
         {
             this.originalTask = originalTask;
         }
 
-        public string Description
+        public override string Description
         {
             get { throw new NotImplementedException(); }
         }
 
-        public IEnumerable<IChoiceInfo> Choices
+        public override IEnumerable<IChoiceInfo> Choices
         {
             get { throw new NotImplementedException(); }
         }
 
-        public void Execute(string code, ITaskHolder character)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

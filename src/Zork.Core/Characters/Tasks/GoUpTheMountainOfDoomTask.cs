@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Zork.Core.Characters.Monsters;
 
 namespace Zork.Core.Characters.Tasks
 {
@@ -38,7 +39,7 @@ namespace Zork.Core.Characters.Tasks
             }
         }
 
-        public void Execute(string code, ITaskHolder character)
+        public IExecutableTask Execute(string code, Character character)
         {
             throw new NotImplementedException();
         }
@@ -46,26 +47,12 @@ namespace Zork.Core.Characters.Tasks
 
     public interface IMonster
     {
-        bool IsAlive { get; }
         string Name { get; }
-    }
-
-    public abstract class Monster : IMonster
-    {
-        protected Monster(string name)
-        {
-            IsAlive = true;
-            Name = name;
-        }
-
-        public bool IsAlive { get; private set; }
-        public string Name { get; private set; }
-    }
-
-    public class GrumpyDatabaseAdministrator : Monster
-    {
-        public GrumpyDatabaseAdministrator() : base("Grumpy Database Administrator")
-        {
-        }
+        int Health { get; }
+        int AttackPoints { get; }
+        int DefensePoints { get; }
+        void TakeHit(int hitPoints);
+        bool IsAlive { get; }
+        bool IsDead { get; }
     }
 }

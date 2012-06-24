@@ -1,0 +1,10 @@
+﻿Enter the following in http://www.websequencediagrams.com/
+
+title Task Sequence
+
+Application->Character: ExecuteChoice(code)
+Character->Task: Execute(code, this)
+Task->Task: FindChoice(code)
+Task->Choice: Execute()
+Choice-->Task: newTask
+Task-->Character: newTask

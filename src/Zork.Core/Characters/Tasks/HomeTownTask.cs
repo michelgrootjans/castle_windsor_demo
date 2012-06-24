@@ -2,11 +2,11 @@
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class DefaultTask : Task
+    public class HomeTownTask : Task
     {
         public override string Description
         {
-            get { return "You are in your home town."; }
+            get { return "You are in the home town where you grew up. You yearn for adventure, so you'd like to get out."; }
         }
 
         public override IEnumerable<IChoiceInfo> Choices
@@ -14,16 +14,15 @@ namespace Zork.Core.Characters.Tasks
             get
             {
                 yield return new Choice("D", "Go to the local tavern and have a drink.", new EnterThePrancingPoneyTask(this));
-                yield return new Choice("F", "Enter the dark forest.", new EnterDarkForestTask(this));
+                yield return new Choice("F", "Enter the forbidden forest.", new EnterForbiddenForestTask(this));
                 yield return new Choice("M", "Go up the mountain of doom.", new GoUpTheMountainOfDoomTask(this));
             }
         }
 
-        public override void Execute(string code, ITaskHolder taskHolder)
+        public override IExecutableTask Execute(string code, Character taskHolder)
         {
             var choice = FindChoice(code);
-            var newTask = choice.Execute();
-            taskHolder.SetTask(newTask);
+            return choice.Execute();
         }
     }
 }

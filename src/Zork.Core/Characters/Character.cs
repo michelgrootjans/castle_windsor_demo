@@ -1,37 +1,56 @@
-﻿using Zork.Core.Characters.Tasks;
+﻿using System;
+using Zork.Core.Characters.Tasks;
 
 namespace Zork.Core.Characters
 {
-    public class Character : ITaskHolder
+    public class Character
     {
-        public bool IsAlive { get; private set; }
         public string Name { get; private set; }
+        public int Health { private set; get; }
+        public int Gold { get; private set; }
+
+        private int AttackPoints { get; set; }
+        private int DefensePoints { get; set; }
         private IExecutableTask currentTask;
+        private readonly Random rnd = new Random();
 
         public Character(string name)
         {
             Name = name;
-            IsAlive = true;
+            Health = 30;
+            AttackPoints = 2;
+            DefensePoints = 2;
+            Gold = 0;
         }
+
+
+        public bool IsAlive{get { return Health > 0; }}
 
         public ITaskInfo CurrentTask
         {
-            get { return currentTask ?? (currentTask = new DefaultTask()); }
+            get { return currentTask ?? (currentTask = new HomeTownTask()); }
         }
 
         public void ExecuteChoice(string code)
         {
-            currentTask.Execute(code, this);
+            currentTask = currentTask.Execute(code, this);
         }
 
-        public void SetTask(IExecutableTask task)
+        public void Fight(IMonster monster)
         {
-            currentTask = task;
+            var damageToMonster = rnd.Next(AttackPoints) - rnd.Next(monster.DefensePoints);
+            if(damageToMonster > 0)
+                monster.TakeHit(damageToMonster);
+            if (monster.IsDead) return;
+            
+            var damageToCharacter = rnd.Next(monster.AttackPoints) - rnd.Next(DefensePoints);
+            if(damageToCharacter > 0)
+                Health -= damageToCharacter;
         }
     }
 
     public interface IExecutableTask : ITaskInfo
     {
-        void Execute(string code, ITaskHolder character);
+        IExecutableTask Execute(string code, Character character);
     }
 }

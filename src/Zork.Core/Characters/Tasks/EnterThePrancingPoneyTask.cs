@@ -1,30 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Zork.Core.Characters.Monsters;
 
 namespace Zork.Core.Characters.Tasks
 {
-    public class EnterThePrancingPoneyTask : ITaskInfo, IExecutableTask
+    public class EnterThePrancingPoneyTask : Task
     {
-        private readonly ITaskInfo originalTask;
+        private readonly IExecutableTask originalTask;
+        private readonly Monster monster;
 
-        public EnterThePrancingPoneyTask(ITaskInfo originalTask)
+        public EnterThePrancingPoneyTask(IExecutableTask originalTask)
         {
             this.originalTask = originalTask;
+            monster = new CertifiedDotNetDeveloper();
         }
 
-        public string Description
+        public override string Description
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                var description = "You are in a dark, smoke filled tavern.";
+                if (monster.IsAlive)
+                    description += string.Format(" A {0} is here.", monster.Name);
+                else
+                    description += string.Format(" A dead {0} is lying on the floor.", monster.Name);
+                return description;
+            }
         }
 
-        public IEnumerable<IChoiceInfo> Choices
+        public override IEnumerable<IChoiceInfo> Choices
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public void Execute(string code, ITaskHolder character)
-        {
-            throw new NotImplementedException();
+            get
+            {
+                if (monster.IsAlive)
+                    yield return new Choice("A", string.Format("Argue with the {0}", monster.Name), new AttackTask(monster, this));
+                yield return new Choice("B", "Go back outside", originalTask);
+            }
         }
     }
 }

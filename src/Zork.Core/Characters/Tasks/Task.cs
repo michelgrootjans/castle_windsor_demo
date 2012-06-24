@@ -7,23 +7,22 @@ namespace Zork.Core.Characters.Tasks
     {
         public abstract string Description { get; }
         public abstract IEnumerable<IChoiceInfo> Choices { get; }
-        public abstract void Execute(string code, ITaskHolder character);
-        
+
         protected IExecutableChoice FindChoice(string code)
         {
-            return (IExecutableChoice)Choices.FirstOrDefault(c => c.Code == code) ?? new NullChoice(this);
+            return (IExecutableChoice)Choices.FirstOrDefault(c => c.Matches(code)) ?? new NullChoice(this);
         }
 
+        public virtual IExecutableTask Execute(string code, Character taskHolder)
+        {
+            var choice = FindChoice(code);
+            return choice.Execute();
+        }
     }
 
     public interface IExecutableChoice
     {
         IExecutableTask Execute();
-    }
-
-    public interface ITaskHolder
-    {
-        void SetTask(IExecutableTask task);
     }
 
     internal class NullChoice : IExecutableChoice

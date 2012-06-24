@@ -26,6 +26,8 @@ namespace Zork.Core.Characters
                        {
                            IsAlive = character.IsAlive,
                            Name = character.Name,
+                           Health = character.Health,
+                           Gold = character.Gold,
                            TaskDescription = character.CurrentTask.Description,
                            Choices = character.CurrentTask.Choices.Select(Map)
                        };

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Zork.Core.Characters
 {
@@ -11,6 +12,8 @@ namespace Zork.Core.Characters
     {
         public bool IsAlive { get; set; }
         public string Name { get; set; }
+        public int Health { get; set; }
+        public int Gold { get; set; }
         public string TaskDescription { get; set; }
         public IEnumerable<PlayerChoiceDto> Choices { get; set; }
     }

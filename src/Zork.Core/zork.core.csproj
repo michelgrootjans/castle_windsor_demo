@@ -43,12 +43,15 @@
     <Compile Include="Characters\IChoiceInfo.cs" />
     <Compile Include="Characters\ITaskInfo.cs" />
     <Compile Include="Characters\Tasks\AttackTask.cs" />
-    <Compile Include="Characters\Tasks\DefaultTask.cs" />
+    <Compile Include="Characters\Monsters\CertifiedDotNetDeveloper.cs" />
+    <Compile Include="Characters\Tasks\HomeTownTask.cs" />
     <Compile Include="Characters\ICharacterRepository.cs" />
     <Compile Include="Characters\ICreateCharacterHandler.cs" />
-    <Compile Include="Characters\Tasks\EnterDarkForestTask.cs" />
+    <Compile Include="Characters\Tasks\EnterForbiddenForestTask.cs" />
     <Compile Include="Characters\Tasks\EnterThePrancingPoneyTask.cs" />
     <Compile Include="Characters\Tasks\GoUpTheMountainOfDoomTask.cs" />
+    <Compile Include="Characters\Monsters\GrumpyDatabaseAdministrator.cs" />
+    <Compile Include="Characters\Tasks\Monster.cs" />
     <Compile Include="Characters\Tasks\Task.cs" />
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
@@ -62,6 +65,10 @@
     <Compile Include="Characters\IUserChoiceHandler.cs" />
     <Compile Include="Characters\UserChoiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\task_sequence.png" />
+    <Content Include="Documentation\SequenceDiagrams.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

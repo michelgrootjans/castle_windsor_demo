@@ -45,7 +45,7 @@ namespace Zork.ConsoleApp
 
         private void PrintPlayerStatus(CharacterInfoDto player)
         {
-            Console.WriteLine("{0} is alive.", player.Name);
+            Console.WriteLine("{0} is alive. Health: {1}. Gold: {2}", player.Name, player.Health, player.Gold);
         }
 
         private string GetNextStep(CharacterInfoDto player)
