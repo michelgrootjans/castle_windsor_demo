@@ -42,6 +42,7 @@
     <Compile Include="Characters\CreateCharacterHandler.cs" />
     <Compile Include="Characters\IChoiceInfo.cs" />
     <Compile Include="Characters\ITaskInfo.cs" />
+    <Compile Include="Characters\Monsters\NonCodingArchitect.cs" />
     <Compile Include="Characters\Tasks\AttackTask.cs" />
     <Compile Include="Characters\Monsters\CertifiedDotNetDeveloper.cs" />
     <Compile Include="Characters\Tasks\HomeTownTask.cs" />

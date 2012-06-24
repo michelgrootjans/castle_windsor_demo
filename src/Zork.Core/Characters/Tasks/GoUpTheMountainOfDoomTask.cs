@@ -12,7 +12,7 @@ namespace Zork.Core.Characters.Tasks
         public GoUpTheMountainOfDoomTask(IExecutableTask originalTask)
         {
             this.originalTask = originalTask;
-            monster = new GrumpyDatabaseAdministrator();
+            monster = new NonCodingArchitect();
         }
 
         public override string Description
@@ -33,7 +33,7 @@ namespace Zork.Core.Characters.Tasks
             get
             {
                 if (monster.IsAlive)
-                    yield return new Choice("A", "Attack the GDBA", new AttackTask(monster, this));
+                    yield return new Choice("A", string.Format("Attack the {0}", monster.Name), new AttackTask(monster, this));
                 yield return new Choice("B", "Go back", originalTask);
             }
         }
