@@ -1,23 +1,22 @@
 ﻿@model CharacterInfoDto
 
-<h2>@Model.Name</h2>
-<div class="task">@Model.TaskDescription</div>
-@using (Html.BeginForm("Choose", "Home"))
-{
-    <div>
-        <fieldset>
-            <legend>What do you want to do?</legend>
+<div class="character">
+    <h2>@Model.Name</h2>
+    <div>HP: @Model.Health</div>
+    <div>Gold: @Model.Gold</div>
+</div>
+
+<div class="task">
+        <div class="description">@Model.TaskDescription</div>
             
-            @foreach (var choice in Model.Choices)
+        @foreach (var choice in Model.Choices)
+        {
+            <div class="editor-field">
+            @using (Html.BeginForm("Choose", "Home"))
             {
-                <div class="editor-field">
-                    @Html.RadioButton("choice", choice.Code)
-                    @choice.Text
-                </div>
-            }
-            <p>
-                <input type="submit" value="Go on" />
-            </p>
-        </fieldset>
-    </div>
-}
+                @Html.Hidden("Choice", choice.Code)
+                <input type="submit" value="@choice.Text" />
+            }                
+            </div>
+        }
+</div>

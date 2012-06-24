@@ -1,0 +1,32 @@
+﻿#main 
+{
+    min-height: 200px;
+}
+
+.character 
+{
+    float: left;
+    width: 100px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #efefef;
+    border-radius: 10px;
+}
+
+.character h2 
+{
+    margin: 0px;
+}
+
+.task 
+{
+    float: left;
+    padding: 0px;
+    margin: 10px;
+}
+
+.description 
+{
+    font-size: 2em;
+}
