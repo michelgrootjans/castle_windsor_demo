@@ -1,4 +1,4 @@
-﻿namespace Zork.Core.Login
+﻿namespace Zork.Core.Api
 {
     public interface IUserValidator
     {

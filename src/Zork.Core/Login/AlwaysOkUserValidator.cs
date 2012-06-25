@@ -1,3 +1,5 @@
+using Zork.Core.Api;
+
 namespace Zork.Core.Login
 {
     public class AlwaysOkUserValidator : IUserValidator

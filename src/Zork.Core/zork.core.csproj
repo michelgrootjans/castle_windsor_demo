@@ -63,7 +63,7 @@
     <Compile Include="Login\AlwaysOkUserValidator.cs" />
     <Compile Include="Login\DatabaseUserValidator.cs" />
     <Compile Include="Login\FindUserByUsernameAndPasswordQuery.cs" />
-    <Compile Include="Login\IUserValidator.cs" />
+    <Compile Include="Api\IUserValidator.cs" />
     <Compile Include="Common\IQuery.cs" />
     <Compile Include="Characters\GetCharacterInfoQueryHandler.cs" />
     <Compile Include="Api\IGetCharacterInfoQueryHandler.cs" />

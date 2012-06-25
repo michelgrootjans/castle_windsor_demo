@@ -6,7 +6,7 @@ namespace Zork.Core.Characters
 {
     public class CharacterInfoMapper : IMapper<Character, CharacterInfoDto>
     {
-        private readonly PlayerChoiceMapper choiceMapper;
+        private readonly IMapper<IChoiceInfo, PlayerChoiceDto> choiceMapper;
 
         public CharacterInfoMapper()
         {
@@ -24,7 +24,7 @@ namespace Zork.Core.Characters
                            MaxHealth = character.MaxHealth,
                            Gold = character.Gold,
                            TaskDescription = character.CurrentTask.Description,
-                           Choices = character.CurrentTask.Choices.Select(c => choiceMapper.Map(c))
+                           Choices = character.CurrentTask.Choices.Select(choiceMapper.Map)
                        };
         }
     }
