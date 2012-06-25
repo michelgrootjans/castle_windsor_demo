@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Zork.Core;
 using Zork.Core.Api;
 using Zork.Core.Characters;
 
@@ -8,7 +7,7 @@ namespace Zork.Web.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly GetCharacterInfoQueryHandler characterInfo;
+        private readonly IGetCharacterInfoQueryHandler characterInfo;
         private readonly ICreateCharacterHandler createCharacter;
         private readonly IUserChoiceHandler choiceHandler;
 
