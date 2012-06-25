@@ -47,7 +47,7 @@ namespace Zork.ConsoleApp
 
         private void PrintPlayerStatus(CharacterInfoDto player)
         {
-            Console.WriteLine("{0} is alive. Health: {1}. Gold: {2}", player.Name, player.Health, player.Gold);
+            Console.WriteLine("{0} is alive. Health: {1}/{2}. Gold: {3}", player.Name, player.Health, player.MaxHealth, player.Gold);
         }
 
         private string GetNextStep(CharacterInfoDto player)
@@ -88,7 +88,7 @@ namespace Zork.ConsoleApp
                 Console.Write("Username: ");
                 username = Console.ReadLine();
                 Console.Write("Password: ");
-                var password = ConsolePasswordReader.ReadLine();
+                var password = ConsolePasswordReader.ReadPassword();
 
                 userIsValid = userValidator.IsValid(username, password);
 

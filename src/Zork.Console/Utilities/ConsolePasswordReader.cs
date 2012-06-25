@@ -4,7 +4,7 @@ namespace Zork.ConsoleApp.Utilities
 {
     public class ConsolePasswordReader
     {
-        public static string ReadLine()
+        public static string ReadPassword()
         {
             var password = "";
             var info = Console.ReadKey(true);

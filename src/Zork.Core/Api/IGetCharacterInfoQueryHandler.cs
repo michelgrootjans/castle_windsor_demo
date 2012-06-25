@@ -12,6 +12,7 @@ namespace Zork.Core.Api
         public bool IsAlive { get; set; }
         public string Name { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; set; }
         public int Gold { get; set; }
         public string TaskDescription { get; set; }
         public IEnumerable<PlayerChoiceDto> Choices { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System;
-using Zork.Core.Characters.Tasks;
 using Zork.Core.Tasks;
 
 namespace Zork.Core.Characters
@@ -8,6 +7,7 @@ namespace Zork.Core.Characters
     {
         public string Name { get; private set; }
         public int Health { private set; get; }
+        public int MaxHealth { get; private set; }
         public int Gold { get; private set; }
 
         private int AttackPoints { get; set; }
@@ -18,8 +18,9 @@ namespace Zork.Core.Characters
         public Character(string name)
         {
             Name = name;
-            Health = 30;
-            AttackPoints = 2;
+            MaxHealth = 30;
+            Health = MaxHealth;
+            AttackPoints = 4;
             DefensePoints = 2;
             Gold = 0;
         }
