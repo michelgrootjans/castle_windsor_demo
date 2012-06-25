@@ -17,7 +17,7 @@ namespace Zork.Core.Tasks
 
         public override string Description
         {
-            get { return string.Format("You are in a fight with a {0}(HP: {1}).", monster.Name, monster.Health); }
+            get { return string.Format("You are in a fight with a {0}(HP: {1}/{2}).", monster.Name, monster.Health, monster.MaxHealth); }
         }
 
         public override IEnumerable<IChoiceInfo> Choices

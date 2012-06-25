@@ -55,7 +55,8 @@
     <Compile Include="Tasks\EnterThePrancingPoneyTask.cs" />
     <Compile Include="Tasks\GoUpTheMountainOfDoomTask.cs" />
     <Compile Include="Monsters\GrumpyDatabaseAdministrator.cs" />
-    <Compile Include="Tasks\Monster.cs" />
+    <Compile Include="Monsters\Monster.cs" />
+    <Compile Include="Tasks\IMonster.cs" />
     <Compile Include="Tasks\Task.cs" />
     <Compile Include="Common\IFindByIdQuery.cs" />
     <Compile Include="Common\FindByIdQuery.cs" />
