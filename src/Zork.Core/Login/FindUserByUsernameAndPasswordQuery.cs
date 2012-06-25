@@ -1,7 +1,8 @@
 using System;
 using System.Threading;
+using Zork.Core.Common;
 
-namespace Zork.Core
+namespace Zork.Core.Login
 {
     public interface IFindUserByUsernameAndPasswordQuery : IQuery
     {

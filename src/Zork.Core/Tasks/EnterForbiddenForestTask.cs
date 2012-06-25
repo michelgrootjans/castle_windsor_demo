@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
-using Zork.Core.Characters.Monsters;
+using Zork.Core.Characters;
+using Zork.Core.Characters.Tasks;
+using Zork.Core.Monsters;
 
-namespace Zork.Core.Characters.Tasks
+namespace Zork.Core.Tasks
 {
     public class EnterForbiddenForestTask : Task
     {

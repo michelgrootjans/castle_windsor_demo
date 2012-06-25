@@ -1,7 +1,9 @@
 ﻿using System;
 using Zork.ConsoleApp.Utilities;
 using Zork.Core;
+using Zork.Core.Api;
 using Zork.Core.Characters;
+using Zork.Core.Login;
 
 namespace Zork.ConsoleApp
 {

@@ -1,4 +1,4 @@
-namespace Zork.Core
+namespace Zork.Core.Login
 {
     public class AlwaysOkUserValidator : IUserValidator
     {

@@ -1,8 +1,10 @@
-﻿namespace Zork.Core.Characters
+﻿using Zork.Core.Api;
+
+namespace Zork.Core.Characters
 {
     public class CreateCharacterHandler : ICreateCharacterHandler
     {
-        private CharacterRepository repository;
+        private readonly ICharacterRepository repository;
 
         public CreateCharacterHandler()
         {

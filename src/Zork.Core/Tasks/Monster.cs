@@ -1,4 +1,4 @@
-﻿namespace Zork.Core.Characters.Tasks
+﻿namespace Zork.Core.Tasks
 {
     public abstract class Monster : IMonster
     {

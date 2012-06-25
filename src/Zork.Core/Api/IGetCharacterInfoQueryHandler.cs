@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Zork.Core.Characters
+namespace Zork.Core.Api
 {
     public interface IGetCharacterInfoQueryHandler
     {

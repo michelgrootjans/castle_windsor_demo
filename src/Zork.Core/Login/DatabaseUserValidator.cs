@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zork.Core
+namespace Zork.Core.Login
 {
     public class DatabaseUserValidator : IUserValidator
     {

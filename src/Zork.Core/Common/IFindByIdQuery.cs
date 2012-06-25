@@ -1,4 +1,4 @@
-namespace Zork.Core
+namespace Zork.Core.Common
 {
     public interface IFindByIdQuery<T> : IQuery
     {

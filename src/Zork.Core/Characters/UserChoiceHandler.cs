@@ -1,8 +1,10 @@
-﻿namespace Zork.Core.Characters
+﻿using Zork.Core.Api;
+
+namespace Zork.Core.Characters
 {
     public class UserChoiceHandler : IUserChoiceHandler
     {
-        private CharacterRepository repository;
+        private readonly CharacterRepository repository;
 
         public UserChoiceHandler()
         {

@@ -1,6 +1,6 @@
-﻿using Zork.Core.Characters.Tasks;
+﻿using Zork.Core.Tasks;
 
-namespace Zork.Core.Characters.Monsters
+namespace Zork.Core.Monsters
 {
     public class NonCodingArchitect : Monster
     {

@@ -1,4 +1,5 @@
-﻿using Zork.Core.Common;
+﻿using Zork.Core.Api;
+using Zork.Core.Common;
 
 namespace Zork.Core.Characters
 {
