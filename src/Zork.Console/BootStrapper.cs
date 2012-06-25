@@ -5,21 +5,21 @@ namespace Zork.ConsoleApp
 {
     public class BootStrapper
     {
-        private static IWindsorContainer container;
+        private static IWindsorContainer windsorContainer;
 
         public static IWindsorContainer GetContainer()
         {
-            return container ?? (container = InitializeContainer());
+            return windsorContainer ?? (windsorContainer = InitializeContainer());
         }
 
         private static WindsorContainer InitializeContainer()
         {
-            var windsorContainer = new WindsorContainer();
+            var container = new WindsorContainer();
             // Important opt-in for this behavior before registering components !
-            windsorContainer.Kernel.Resolver.AddSubResolver(new CollectionResolver(windsorContainer.Kernel, true));
+            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
             
-            RegisterComponents(windsorContainer);
-            return windsorContainer;
+            RegisterComponents(container);
+            return container;
         }
 
 
