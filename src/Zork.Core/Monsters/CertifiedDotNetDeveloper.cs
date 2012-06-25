@@ -1,6 +1,4 @@
-﻿using Zork.Core.Tasks;
-
-namespace Zork.Core.Monsters
+﻿namespace Zork.Core.Monsters
 {
     public class CertifiedDotNetDeveloper : Monster
     {

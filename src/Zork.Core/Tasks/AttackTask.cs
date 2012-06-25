@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Zork.Core.Characters;
-using Zork.Core.Characters.Tasks;
 
 namespace Zork.Core.Tasks
 {

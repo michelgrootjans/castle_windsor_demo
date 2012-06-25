@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Zork.Core.Characters;
 
-namespace Zork.Core.Characters.Tasks
+namespace Zork.Core.Tasks
 {
     public abstract class Task : IExecutableTask
     {

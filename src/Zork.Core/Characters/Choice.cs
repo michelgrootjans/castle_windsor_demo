@@ -1,4 +1,4 @@
-﻿using Zork.Core.Characters.Tasks;
+﻿using Zork.Core.Tasks;
 
 namespace Zork.Core.Characters
 {
