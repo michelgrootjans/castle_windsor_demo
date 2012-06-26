@@ -33,7 +33,7 @@ namespace Zork.Core.Tasks
             get
             {
                 if (monster.IsAlive)
-                    yield return new Choice("A", string.Format("Attack the {0}", monster.Name), new AttackTask(monster, this));
+                    yield return new Choice("A", string.Format("Propose a simpler design to the {0}", monster.Name), new AttackTask(monster, this));
                 yield return new Choice("B", "Go back", originalTask);
             }
         }

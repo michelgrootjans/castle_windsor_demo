@@ -1,5 +1,4 @@
-﻿using System;
-using Zork.ConsoleApp.Utilities;
+﻿using Zork.ConsoleApp.Utilities;
 using Zork.Core.Api;
 using Zork.Core.Characters;
 using Zork.Core.Login;
@@ -32,40 +31,40 @@ namespace Zork.ConsoleApp
 
                 while (player.IsAlive)
                 {
-                    Console.Clear();
+                    Terminal.Clear();
                     PrintPlayerStatus(player);
-                    string nextStep = GetNextStep(player);
+                    var nextStep = GetNextStep(player);
                     if (nextStep == "quit") return;
 
                     choiceHandler.Execute(new UserChoiceCommand {UserName = username, Choice = nextStep});
                     player = characterQuery.GetCharacterOf(username);
                 }
-                Console.WriteLine("You are dead.");
+                Terminal.WriteLine("You are dead.");
             } while (UserWantsToPlayAgain());
         }
 
         private void PrintPlayerStatus(CharacterInfoDto player)
         {
-            Console.WriteLine("{0} is alive. Health: {1}/{2}. Gold: {3}", player.Name, player.Health, player.MaxHealth, player.Gold);
+            Terminal.WriteLine("{0} is alive. Health: {1}/{2}. Gold: {3}", player.Name, player.Health, player.MaxHealth, player.Gold);
         }
 
         private string GetNextStep(CharacterInfoDto player)
         {
-            Console.WriteLine(player.TaskDescription);
-            Console.WriteLine("These are your choices:");
+            Terminal.WriteLine(player.TaskDescription);
+            Terminal.WriteLine("These are your choices:");
             foreach (var choice in player.Choices)
             {
-                Console.WriteLine("{0}: {1}", choice.Code, choice.Text);
+                Terminal.WriteLine("{0}: {1}", choice.Code, choice.Text);
             }
-            Console.Write("What do you want to do: ");
-            return Console.ReadLine();
+            Terminal.Write("What do you want to do: ");
+            return Terminal.ReadLine();
         }
 
         private CharacterInfoDto CreatePlayer()
         {
-            Console.WriteLine("You don't have a character. Please create one.");
-            Console.Write("What do you want to name it: ");
-            var characterName = Console.ReadLine();
+            Terminal.WriteLine("You don't have a character. Please create one.");
+            Terminal.Write("What do you want to name it: ");
+            var characterName = Terminal.ReadLine();
             var command = new CreateCharacterCommand {UserName = username, CharacterName = characterName};
             createCharacterHandler.Execute(command);
             return characterQuery.GetCharacterOf(username);
@@ -73,35 +72,35 @@ namespace Zork.ConsoleApp
 
         private void PrintTitle()
         {
-            Console.WriteLine("Welcome to Zork");
-            Console.WriteLine("---------------");
+            Terminal.WriteLine("Welcome to Zork");
+            Terminal.WriteLine("---------------");
         }
 
         private void Login()
         {
             var userIsValid = false;
 
-            Console.WriteLine("Please login");
+            Terminal.WriteLine("Please login");
             while (!userIsValid)
             {
-                Console.Write("Username: ");
-                username = Console.ReadLine();
-                Console.Write("Password: ");
-                var password = ConsolePasswordReader.ReadPassword();
+                Terminal.Write("Username: ");
+                username = Terminal.ReadLine();
+                Terminal.Write("Password: ");
+                var password = Terminal.ReadPassword();
 
                 userIsValid = userValidator.IsValid(username, password);
 
                 if (!userIsValid)
-                    Console.WriteLine("Unknown user, please try again...");
+                    Terminal.WriteLine("Unknown user, please try again...");
             }
-            Console.WriteLine();
-            Console.WriteLine();
+            Terminal.WriteLine();
+            Terminal.WriteLine();
         }
 
         private bool UserWantsToPlayAgain()
         {
-            Console.Write("Do you want to try again (y/n)?");
-            var answer = Console.ReadLine();
+            Terminal.Write("Do you want to try again (y/n)?");
+            var answer = Terminal.ReadLine();
             return (answer == null) ? false : answer.ToLower().StartsWith("y");
         }
     }
