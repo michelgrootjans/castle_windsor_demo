@@ -1,4 +1,6 @@
-﻿using Zork.ConsoleApp.Utilities;
+﻿using System;
+using System.Threading;
+using Zork.ConsoleApp.Utilities;
 using Zork.Core.Api;
 using Zork.Core.Characters;
 using Zork.Core.Login;
@@ -27,17 +29,19 @@ namespace Zork.ConsoleApp
             Login();
             do
             {
-                var player = characterQuery.GetCharacterOf(username) ?? CreatePlayer();
 
-                while (player.IsAlive)
+                while (true)
                 {
+                    var player = characterQuery.GetCharacterOf(username) ?? CreatePlayer();
                     Terminal.Clear();
+                    if (!player.IsAlive)
+                        break;
                     PrintPlayerStatus(player);
+                    Terminal.WriteLine();
                     var nextStep = GetNextStep(player);
                     if (nextStep == "quit") return;
 
                     choiceHandler.Execute(new UserChoiceCommand {UserName = username, Choice = nextStep});
-                    player = characterQuery.GetCharacterOf(username);
                 }
                 Terminal.WriteLine("You are dead.");
             } while (UserWantsToPlayAgain());
@@ -45,7 +49,8 @@ namespace Zork.ConsoleApp
 
         private void PrintPlayerStatus(CharacterInfoDto player)
         {
-            Terminal.WriteLine("{0} is alive. Health: {1}/{2}. Gold: {3}", player.Name, player.Health, player.MaxHealth, player.Gold);
+            Terminal.WriteLine("{0} is alive. Health: {1}/{2}. Gold: {3}",
+                               player.Name, player.Health, player.MaxHealth, player.Gold);
         }
 
         private string GetNextStep(CharacterInfoDto player)
@@ -72,8 +77,12 @@ namespace Zork.ConsoleApp
 
         private void PrintTitle()
         {
-            Terminal.WriteLine("Welcome to Zork");
-            Terminal.WriteLine("---------------");
+            using (new TerminalColor(ConsoleColor.Yellow))
+            {
+                Terminal.WriteLine("Welcome to Zork");
+                Terminal.WriteLine("---------------");
+            }
+            Thread.Sleep(3000);
         }
 
         private void Login()
