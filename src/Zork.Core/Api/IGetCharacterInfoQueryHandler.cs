@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Zork.Core.Api
 {
-    public interface IGetCharacterInfoQueryHandler
+    public interface IGetCharacterInfoQueryHandler : IQueryHandler
     {
         CharacterInfoDto GetCharacterOf(string userName);
     }

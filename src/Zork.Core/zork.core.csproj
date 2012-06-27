@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\IQueryHandler.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\CharacterInfoMapper.cs" />
     <Compile Include="Characters\CharacterRepository.cs" />
@@ -50,7 +51,7 @@
     <Compile Include="Monsters\CertifiedDotNetDeveloper.cs" />
     <Compile Include="Tasks\HomeTownTask.cs" />
     <Compile Include="Characters\ICharacterRepository.cs" />
-    <Compile Include="Api\ICreateCharacterHandler.cs" />
+    <Compile Include="Api\CreateCharacterCommand.cs" />
     <Compile Include="Tasks\EnterForbiddenForestTask.cs" />
     <Compile Include="Tasks\EnterThePrancingPoneyTask.cs" />
     <Compile Include="Tasks\GoUpTheMountainOfDoomTask.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Api\IUserValidator.cs" />
     <Compile Include="Characters\GetCharacterInfoQueryHandler.cs" />
     <Compile Include="Api\IGetCharacterInfoQueryHandler.cs" />
-    <Compile Include="Api\IUserChoiceHandler.cs" />
+    <Compile Include="Api\UserChoiceCommand.cs" />
     <Compile Include="Characters\UserChoiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

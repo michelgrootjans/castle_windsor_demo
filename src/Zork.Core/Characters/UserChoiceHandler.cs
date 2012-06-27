@@ -2,7 +2,7 @@
 
 namespace Zork.Core.Characters
 {
-    public class UserChoiceHandler : IUserChoiceHandler
+    public class UserChoiceHandler : ICommandHandler<UserChoiceCommand>
     {
         private readonly CharacterRepository repository;
 
@@ -16,5 +16,10 @@ namespace Zork.Core.Characters
             var character = repository.GetCharacterOf(command.UserName);
             character.ExecuteChoice(command.Choice);
         }
+    }
+
+    public interface ICommandHandler<TCommand>
+    {
+        void Execute(TCommand command);
     }
 }

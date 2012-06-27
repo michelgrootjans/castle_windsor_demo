@@ -2,7 +2,7 @@
 
 namespace Zork.Core.Characters
 {
-    public class CreateCharacterHandler : ICreateCharacterHandler
+    public class CreateCharacterHandler : ICommandHandler<CreateCharacterCommand>
     {
         private readonly ICharacterRepository repository;
 

@@ -10,8 +10,8 @@ namespace Zork.ConsoleApp
     internal class Game
     {
         private readonly IGetCharacterInfoQueryHandler characterQuery;
-        private readonly IUserChoiceHandler choiceHandler;
-        private readonly ICreateCharacterHandler createCharacterHandler;
+        private readonly ICommandHandler<UserChoiceCommand> choiceHandler;
+        private readonly ICommandHandler<CreateCharacterCommand> createCharacterHandler;
         private readonly IUserValidator userValidator;
         private string username;
 

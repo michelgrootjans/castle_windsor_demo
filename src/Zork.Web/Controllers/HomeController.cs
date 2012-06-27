@@ -8,8 +8,8 @@ namespace Zork.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IGetCharacterInfoQueryHandler characterInfo;
-        private readonly ICreateCharacterHandler createCharacter;
-        private readonly IUserChoiceHandler choiceHandler;
+        private readonly ICommandHandler<CreateCharacterCommand> createCharacter;
+        private readonly ICommandHandler<UserChoiceCommand> choiceHandler;
 
         public HomeController()
         {
