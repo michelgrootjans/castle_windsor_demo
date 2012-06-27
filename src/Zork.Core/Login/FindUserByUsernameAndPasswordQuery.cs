@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace Zork.Core.Login
 {
-    public interface IFindUserByUsernameAndPasswordQuery
+    public interface IFindUserByUsernameAndPasswordQuery : IDatabaseQuery
     {
         void Find(string username, string password);
     }

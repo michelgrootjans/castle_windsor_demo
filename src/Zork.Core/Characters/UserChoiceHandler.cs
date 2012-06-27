@@ -1,4 +1,5 @@
-﻿using Zork.Core.Api;
+﻿using System;
+using Zork.Core.Api;
 
 namespace Zork.Core.Characters
 {
@@ -14,12 +15,9 @@ namespace Zork.Core.Characters
         public void Execute(UserChoiceCommand command)
         {
             var character = repository.GetCharacterOf(command.UserName);
+            Console.WriteLine("Executing choice '{0}' for '{2} (owner: {1})'", command.Choice, command.UserName, character.Name);
+
             character.ExecuteChoice(command.Choice);
         }
-    }
-
-    public interface ICommandHandler<TCommand>
-    {
-        void Execute(TCommand command);
     }
 }

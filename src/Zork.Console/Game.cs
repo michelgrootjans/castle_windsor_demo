@@ -33,7 +33,9 @@ namespace Zork.ConsoleApp
                 while (true)
                 {
                     var player = characterQuery.GetCharacterOf(username) ?? CreatePlayer();
-                    Terminal.Clear();
+                    Terminal.WriteLine();
+                    Terminal.WriteLine();
+                    Terminal.WriteLine("*************************************************");
                     if (!player.IsAlive)
                         break;
                     PrintPlayerStatus(player);

@@ -1,4 +1,5 @@
-﻿using Zork.Core.Api;
+﻿using System;
+using Zork.Core.Api;
 
 namespace Zork.Core.Characters
 {
@@ -13,6 +14,7 @@ namespace Zork.Core.Characters
 
         public void Execute(CreateCharacterCommand command)
         {
+            Console.WriteLine("Creating character '{0}'", command.CharacterName);
             repository.Add(command.UserName, new Character(command.CharacterName));
         }
     }
