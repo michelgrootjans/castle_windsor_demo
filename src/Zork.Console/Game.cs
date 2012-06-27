@@ -31,10 +31,10 @@ namespace Zork.ConsoleApp
             Login();
             do
             {
-
+                CreatePlayer();
                 while (true)
                 {
-                    var player = characterQuery.GetCharacterOf(username) ?? CreatePlayer();
+                    var player = characterQuery.GetCharacterOf(username);
                     Terminal.WriteLine();
                     Terminal.WriteLine();
                     Terminal.WriteLine("*************************************************");
