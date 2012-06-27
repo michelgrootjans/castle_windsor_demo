@@ -55,12 +55,17 @@ namespace Zork.ConsoleApp
 
         private string GetNextStep(CharacterInfoDto player)
         {
-            Terminal.WriteLine(player.TaskDescription);
+            using (new TerminalColor(ConsoleColor.Cyan))
+                Terminal.WriteLine(player.TaskDescription);
+            Terminal.WriteLine();
+
             Terminal.WriteLine("These are your choices:");
             foreach (var choice in player.Choices)
             {
-                Terminal.WriteLine("{0}: {1}", choice.Code, choice.Text);
+                using (new TerminalColor(ConsoleColor.Yellow))
+                    Terminal.WriteLine("{0}: {1}", choice.Code, choice.Text);
             }
+            Terminal.WriteLine();
             Terminal.Write("What do you want to do: ");
             return Terminal.ReadLine();
         }
