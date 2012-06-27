@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Zork.Core.Api;
-using Zork.Core.Common;
+using Zork.Core.Api.Common;
+using Zork.Core.Api.Queries;
 
 namespace Zork.Core.Characters
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using Zork.Core.Api;
+using Zork.Core.Api.Commands;
 
 namespace Zork.Core.Characters
 {

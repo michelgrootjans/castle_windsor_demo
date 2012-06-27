@@ -1,4 +1,4 @@
-namespace Zork.Core.Api
+namespace Zork.Core.Api.Commands
 {
     public class CreateCharacterCommand
     {

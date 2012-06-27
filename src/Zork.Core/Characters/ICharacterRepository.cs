@@ -1,4 +1,6 @@
-﻿namespace Zork.Core.Characters
+﻿using Zork.Core.Api.Common;
+
+namespace Zork.Core.Characters
 {
     public interface ICharacterRepository : IRepository
     {

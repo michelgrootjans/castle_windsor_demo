@@ -1,4 +1,6 @@
-﻿namespace Zork.Core.Api
+﻿using Zork.Core.Api.Common;
+
+namespace Zork.Core.Api.Queries
 {
     public interface IUserValidator : IQueryHandler
     {

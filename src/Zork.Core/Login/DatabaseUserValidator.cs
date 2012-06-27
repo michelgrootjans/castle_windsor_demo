@@ -1,5 +1,5 @@
 ﻿using System;
-using Zork.Core.Api;
+using Zork.Core.Api.Queries;
 
 namespace Zork.Core.Login
 {

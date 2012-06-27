@@ -36,25 +36,28 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\IQueryHandler.cs" />
+    <Compile Include="Api\Common\DummyImplementations.cs" />
+    <Compile Include="Api\Common\ISession.cs" />
+    <Compile Include="Api\Common\ISessionFactory.cs" />
+    <Compile Include="Api\Queries\IQueryHandler.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\CharacterInfoMapper.cs" />
     <Compile Include="Characters\CharacterRepository.cs" />
     <Compile Include="Characters\Choice.cs" />
     <Compile Include="Characters\CreateCharacterHandler.cs" />
     <Compile Include="Characters\IChoiceInfo.cs" />
-    <Compile Include="Characters\ICommandHandler.cs" />
-    <Compile Include="Characters\IRepository.cs" />
-    <Compile Include="Common\IMapper.cs" />
+    <Compile Include="Api\Commands\ICommandHandler.cs" />
+    <Compile Include="Api\Common\IRepository.cs" />
+    <Compile Include="Api\Common\IMapper.cs" />
     <Compile Include="Characters\ITaskInfo.cs" />
-    <Compile Include="Login\IDatabaseQuery.cs" />
+    <Compile Include="Api\Common\IDatabaseQuery.cs" />
     <Compile Include="Monsters\NonCodingArchitect.cs" />
     <Compile Include="Characters\PlayerChoiceMapper.cs" />
     <Compile Include="Tasks\AttackTask.cs" />
     <Compile Include="Monsters\CertifiedDotNetDeveloper.cs" />
     <Compile Include="Tasks\HomeTownTask.cs" />
     <Compile Include="Characters\ICharacterRepository.cs" />
-    <Compile Include="Api\CreateCharacterCommand.cs" />
+    <Compile Include="Api\Commands\CreateCharacterCommand.cs" />
     <Compile Include="Tasks\EnterForbiddenForestTask.cs" />
     <Compile Include="Tasks\EnterThePrancingPoneyTask.cs" />
     <Compile Include="Tasks\GoUpTheMountainOfDoomTask.cs" />
@@ -65,10 +68,10 @@
     <Compile Include="Login\AlwaysOkUserValidator.cs" />
     <Compile Include="Login\DatabaseUserValidator.cs" />
     <Compile Include="Login\FindUserByUsernameAndPasswordQuery.cs" />
-    <Compile Include="Api\IUserValidator.cs" />
+    <Compile Include="Api\Queries\IUserValidator.cs" />
     <Compile Include="Characters\GetCharacterInfoQueryHandler.cs" />
-    <Compile Include="Api\IGetCharacterInfoQueryHandler.cs" />
-    <Compile Include="Api\UserChoiceCommand.cs" />
+    <Compile Include="Api\Queries\IGetCharacterInfoQueryHandler.cs" />
+    <Compile Include="Api\Commands\UserChoiceCommand.cs" />
     <Compile Include="Characters\UserChoiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

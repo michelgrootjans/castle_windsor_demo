@@ -1,4 +1,4 @@
-﻿namespace Zork.Core.Common
+﻿namespace Zork.Core.Api.Common
 {
     public interface IMapper<TFrom, TTo>
     {

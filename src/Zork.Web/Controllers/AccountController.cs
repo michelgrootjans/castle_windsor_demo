@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using Zork.Core.Api;
+using Zork.Core.Api.Queries;
 using Zork.Core.Login;
 using Zork.Web.Models;
 

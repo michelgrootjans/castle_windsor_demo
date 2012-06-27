@@ -2,6 +2,8 @@
 using System.Threading;
 using Zork.ConsoleApp.Utilities;
 using Zork.Core.Api;
+using Zork.Core.Api.Commands;
+using Zork.Core.Api.Queries;
 using Zork.Core.Characters;
 using Zork.Core.Login;
 

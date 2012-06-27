@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using Zork.Core.Api;
+using Zork.Core.Api.Commands;
+using Zork.Core.Api.Queries;
 using Zork.Core.Characters;
 
 namespace Zork.Web.Controllers
