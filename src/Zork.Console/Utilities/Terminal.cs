@@ -4,6 +4,30 @@ namespace Zork.ConsoleApp.Utilities
 {
     public class Terminal
     {
+        public static void Clear()
+        {
+            Console.Clear();
+        }
+
+        public static void WriteLine(string message = null, params object[] arguments)
+        {
+            if (message == null)
+                Console.WriteLine();
+            else
+                Console.WriteLine(message, arguments);
+
+        }
+
+        public static void Write(string message, params object[] arguments)
+        {
+            Console.Write(message, arguments);
+        }
+
+        public static string ReadLine()
+        {
+            return Console.ReadLine();
+        }
+
         public static string ReadPassword()
         {
             var password = "";
@@ -27,30 +51,6 @@ namespace Zork.ConsoleApp.Utilities
             }
             Console.WriteLine();
             return password;
-        }
-
-        public static void Clear()
-        {
-            Console.Clear();
-        }
-
-        public static void WriteLine(string message = null, params object[] arguments)
-        {
-                if (message == null)
-                    Console.WriteLine();
-                else
-                    Console.WriteLine(message, arguments);
-
-        }
-
-        public static void Write(string message, params object[] arguments)
-        {
-            Console.Write(message, arguments);
-        }
-
-        public static string ReadLine()
-        {
-            return Console.ReadLine();
         }
     }
 }

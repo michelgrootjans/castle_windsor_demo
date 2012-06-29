@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandler.cs" />
+    <Compile Include="ICommandRouter.cs" />
+    <Compile Include="IQueryProvider.cs" />
+    <Compile Include="WindsorCommandRouter.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="WindsorInstallers\OrmTransactionInterceptor.cs" />
     <Compile Include="WindsorInstallers\Boot.cs" />
     <Compile Include="WindsorInstallers\ZorkHandlerInstaller.cs" />
+    <Compile Include="WindsorQueryHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

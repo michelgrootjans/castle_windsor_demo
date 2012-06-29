@@ -1,4 +1,5 @@
 ﻿using System;
+using Castle.MicroKernel;
 using Zork.ConsoleApp.WindsorInstallers;
 
 namespace Zork.ConsoleApp
@@ -9,7 +10,8 @@ namespace Zork.ConsoleApp
         {
             try
             {
-                new Game(Boot.Strap())
+                var kernel = Boot.Strap();
+                new Game(new WindsorCommandRouter(kernel), new WindsorQueryHandler(kernel))
                     .Run();
             }
             catch (Exception e)

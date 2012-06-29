@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using Castle.MicroKernel;
 using Zork.ConsoleApp.Utilities;
 using Zork.Core.Api.Commands;
 using Zork.Core.Api.Queries;
@@ -9,14 +8,14 @@ namespace Zork.ConsoleApp
 {
     internal class Game
     {
-        private readonly IKernel kernel;
         private string username;
-        private CommandHandler commandHandler;
+        private readonly ICommandRouter commandRouter;
+        private readonly IQueryProvider queryProvider;
 
-        public Game(IKernel kernel)
+        public Game(ICommandRouter commandRouter, IQueryProvider queryProvider)
         {
-            this.kernel = kernel;
-            commandHandler = new CommandHandler();
+            this.queryProvider = queryProvider;
+            this.commandRouter = commandRouter;
         }
 
         public void Run()
@@ -28,7 +27,7 @@ namespace Zork.ConsoleApp
                 CreatePlayer();
                 while (true)
                 {
-                    var player = GetCharacterQuery(kernel).GetCharacterOf(username);
+                    var player = queryProvider.GetCharacterOf(username);
                     Terminal.WriteLine();
                     Terminal.WriteLine();
                     Terminal.WriteLine("*************************************************");
@@ -39,7 +38,8 @@ namespace Zork.ConsoleApp
                     var nextStep = GetNextStep(player);
                     if (nextStep == "quit") return;
 
-                    GetChoiceHandler(kernel).Execute(new UserChoiceCommand {UserName = username, Choice = nextStep});
+                    //GetChoiceHandler(kernel).Execute(new UserChoiceCommand {UserName = username, Choice = nextStep});
+                    commandRouter.Execute(new UserChoiceCommand {UserName = username, Choice = nextStep});
                 }
                 Terminal.WriteLine("You are dead.");
             } while (UserWantsToPlayAgain());
@@ -73,9 +73,8 @@ namespace Zork.ConsoleApp
             Terminal.WriteLine("You don't have a character. Please create one.");
             Terminal.Write("What do you want to name it: ");
             var characterName = Terminal.ReadLine();
-            var command = new CreateCharacterCommand {UserName = username, CharacterName = characterName};
-            GetCreateCharacterHandler(kernel).Execute(command);
-            GetCharacterQuery(kernel).GetCharacterOf(username);
+            commandRouter.Execute(new CreateCharacterCommand {UserName = username, CharacterName = characterName});
+            queryProvider.GetCharacterOf(username);
         }
 
         private void PrintTitle()
@@ -100,7 +99,7 @@ namespace Zork.ConsoleApp
                 Terminal.Write("Password: ");
                 var password = Terminal.ReadPassword();
 
-                userIsValid = GetUserValidator(kernel).IsValid(username, password);
+                userIsValid = queryProvider.UserIsValid(username, password);
 
                 if (!userIsValid)
                     Terminal.WriteLine("Unknown user, please try again...");
@@ -114,26 +113,6 @@ namespace Zork.ConsoleApp
             Terminal.Write("Do you want to try again (y/n)?");
             var answer = Terminal.ReadLine();
             return (answer == null) ? false : answer.ToLower().StartsWith("y");
-        }
-
-        private IGetCharacterInfoQueryHandler GetCharacterQuery(IKernel k)
-        {
-            return k.Resolve<IGetCharacterInfoQueryHandler>();
-        }
-
-        private ICommandHandler<UserChoiceCommand> GetChoiceHandler(IKernel k)
-        {
-            return k.Resolve<ICommandHandler<UserChoiceCommand>>();
-        }
-
-        private ICommandHandler<CreateCharacterCommand> GetCreateCharacterHandler(IKernel k)
-        {
-            return k.Resolve<ICommandHandler<CreateCharacterCommand>>();
-        }
-
-        private IUserValidator GetUserValidator(IKernel k)
-        {
-            return k.Resolve<IUserValidator>();
         }
     }
 }

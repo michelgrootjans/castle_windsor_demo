@@ -7,8 +7,14 @@ namespace Zork.Core.Api.Common
     {
         public DummySessionFactory()
         {
-            Console.WriteLine("Creating a new SessionFactory...");
-            Thread.Sleep(2000);
+            //a SessionFactory is expensive to build
+            Console.Write("Creating a new SessionFactory");
+            for (var i = 0; i < 10; i++)
+            {
+                Thread.Sleep(200); 
+                Console.Write(".");                
+            }
+            Console.WriteLine("done.");
         }
 
         public ISession OpenSession()
@@ -20,11 +26,6 @@ namespace Zork.Core.Api.Common
 
     public class DummySession : ISession
     {
-        public DummySession()
-        {
-            Console.WriteLine("Creating a session");
-        }
-
         public ITransaction BeginTransaction()
         {
             Console.WriteLine("Beginning a new transaction...");
