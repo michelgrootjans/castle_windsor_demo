@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Threading;
+using Castle.MicroKernel;
+using Castle.Windsor;
 using Zork.ConsoleApp.Utilities;
-using Zork.Core.Api;
 using Zork.Core.Api.Commands;
 using Zork.Core.Api.Queries;
-using Zork.Core.Characters;
-using Zork.Core.Login;
 
 namespace Zork.ConsoleApp
 {
@@ -17,12 +16,12 @@ namespace Zork.ConsoleApp
         private readonly IUserValidator userValidator;
         private string username;
 
-        public Game()
+        public Game(IKernel kernel)
         {
-            characterQuery = new GetCharacterInfoQueryHandler();
-            choiceHandler = new UserChoiceHandler();
-            createCharacterHandler = new CreateCharacterHandler();
-            userValidator = new DatabaseUserValidator();
+            characterQuery = kernel.Resolve<IGetCharacterInfoQueryHandler>();
+            choiceHandler = kernel.Resolve<ICommandHandler<UserChoiceCommand>>();
+            createCharacterHandler = kernel.Resolve<ICommandHandler<CreateCharacterCommand>>();
+            userValidator = kernel.Resolve<IUserValidator>();
         }
 
         public void Run()

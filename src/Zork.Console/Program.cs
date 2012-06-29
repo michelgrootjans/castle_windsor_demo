@@ -1,5 +1,5 @@
 ﻿using System;
-using Castle.Windsor;
+using Zork.ConsoleApp.WindsorInstallers;
 
 namespace Zork.ConsoleApp
 {
@@ -9,12 +9,14 @@ namespace Zork.ConsoleApp
         {
             try
             {
-                new Game().Run();
+                new Game(Boot.Strap())
+                    .Run();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
+
     }
 }
