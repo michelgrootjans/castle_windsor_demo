@@ -1,8 +1,6 @@
 ﻿using System.Web.Mvc;
-using Zork.Core.Api;
 using Zork.Core.Api.Commands;
 using Zork.Core.Api.Queries;
-using Zork.Core.Characters;
 
 namespace Zork.Web.Controllers
 {
@@ -13,11 +11,11 @@ namespace Zork.Web.Controllers
         private readonly ICommandHandler<CreateCharacterCommand> createCharacter;
         private readonly ICommandHandler<UserChoiceCommand> choiceHandler;
 
-        public HomeController()
+        public HomeController(IGetCharacterInfoQueryHandler characterInfo, ICommandHandler<CreateCharacterCommand> createCharacter, ICommandHandler<UserChoiceCommand> choiceHandler)
         {
-            characterInfo = new GetCharacterInfoQueryHandler();
-            createCharacter = new CreateCharacterHandler();
-            choiceHandler = new UserChoiceHandler();
+            this.characterInfo = characterInfo;
+            this.createCharacter = createCharacter;
+            this.choiceHandler = choiceHandler;
         }
 
         [HttpGet]

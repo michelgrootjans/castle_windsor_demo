@@ -1,8 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
-using Zork.Core.Api;
 using Zork.Core.Api.Queries;
-using Zork.Core.Login;
 using Zork.Web.Models;
 
 namespace Zork.Web.Controllers
@@ -14,10 +12,11 @@ namespace Zork.Web.Controllers
     {
         private readonly IUserValidator userValidator;
 
-        public AccountController()
+        public AccountController(IUserValidator userValidator)
         {
-            userValidator = new DatabaseUserValidator();
+            this.userValidator = userValidator;
         }
+
 
         [HttpGet]
         public ActionResult LogOn()

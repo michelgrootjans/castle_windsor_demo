@@ -20,6 +20,11 @@ namespace Zork.Core.Api.Common
 
     public class DummySession : ISession
     {
+        public DummySession()
+        {
+            Console.WriteLine("Creating a session");
+        }
+
         public ITransaction BeginTransaction()
         {
             Console.WriteLine("Beginning a new transaction...");

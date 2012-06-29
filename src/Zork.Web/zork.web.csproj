@@ -81,7 +81,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ControllerInstaller.cs" />
+    <Compile Include="App_Start\OrmInstaller.cs" />
+    <Compile Include="App_Start\OrmTransactionInterceptor.cs" />
     <Compile Include="App_Start\WindsorBootstrapper.cs" />
+    <Compile Include="App_Start\ZorkHandlerInstaller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

@@ -1,4 +1,5 @@
 ﻿using System;
+using Castle.Windsor;
 
 namespace Zork.ConsoleApp
 {

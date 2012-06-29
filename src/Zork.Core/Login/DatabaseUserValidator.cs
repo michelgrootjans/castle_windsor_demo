@@ -16,7 +16,7 @@ namespace Zork.Core.Login
         {
             userQuery.Find(userName, password);
 
-            Console.WriteLine("'{0}' is a valid user", userName);
+            Console.WriteLine("'{0}' is a valid user {1}", userName, GetHashCode());
             return true;
         }
     }

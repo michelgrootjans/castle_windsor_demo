@@ -1,4 +1,4 @@
-﻿namespace Zork.Core.Api.Common
+﻿namespace Zork.Core.Api.Queries
 {
     public interface IQueryHandler
     {

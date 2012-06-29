@@ -1,3 +1,5 @@
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 using Zork.Web.App_Start;
 using WebActivator;
 
@@ -8,6 +10,8 @@ namespace Zork.Web.App_Start
     {
         public static void PreStart()
         {
+            var container = new WindsorContainer();
+            container.Install(FromAssembly.This());
         }
     }
 }
