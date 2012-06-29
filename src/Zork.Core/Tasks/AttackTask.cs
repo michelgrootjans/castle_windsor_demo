@@ -16,7 +16,7 @@ namespace Zork.Core.Tasks
 
         public override string Description
         {
-            get { return string.Format("You are in a fight with a {0}(HP: {1}/{2}).", monster.Name, monster.Health, monster.MaxHealth); }
+            get { return string.Format("You are in a fight with a {0} (HP: {1}/{2}).", monster.Name, monster.Health, monster.MaxHealth); }
         }
 
         public override IEnumerable<IChoiceInfo> Choices
@@ -31,9 +31,11 @@ namespace Zork.Core.Tasks
         public override IExecutableTask Execute(string code, Character character)
         {
             character.Fight(monster);
-            if (monster.IsDead) return originalTask;
+            if (monster.IsDead) 
+                return originalTask;
+            
             var choice = FindChoice(code);
-            return choice.Execute();
+            return choice.NextTask();
         }
     }
 }

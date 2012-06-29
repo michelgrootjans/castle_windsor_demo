@@ -42,7 +42,7 @@
     <Compile Include="Api\Queries\IQueryHandler.cs" />
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\CharacterInfoMapper.cs" />
-    <Compile Include="Characters\CharacterRepository.cs" />
+    <Compile Include="Characters\StaticInMemoryCharacterRepository.cs" />
     <Compile Include="Characters\Choice.cs" />
     <Compile Include="Characters\CreateCharacterHandler.cs" />
     <Compile Include="Characters\IChoiceInfo.cs" />
@@ -63,6 +63,7 @@
     <Compile Include="Tasks\GoUpTheMountainOfDoomTask.cs" />
     <Compile Include="Monsters\GrumpyDatabaseAdministrator.cs" />
     <Compile Include="Monsters\Monster.cs" />
+    <Compile Include="Tasks\IExecutableChoice.cs" />
     <Compile Include="Tasks\IMonster.cs" />
     <Compile Include="Tasks\Task.cs" />
     <Compile Include="Login\AlwaysOkUserValidator.cs" />

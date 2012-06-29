@@ -8,10 +8,10 @@ namespace Zork.Core.Characters
         private readonly ICharacterRepository repository;
         private readonly IMapper<Character, CharacterInfoDto> mapper;
 
-        public GetCharacterInfoQueryHandler()
+        public GetCharacterInfoQueryHandler(ICharacterRepository repository, IMapper<Character, CharacterInfoDto> mapper)
         {
-            repository = new CharacterRepository();
-            mapper = new CharacterInfoMapper();
+            this.repository = repository;
+            this.mapper = mapper;
         }
 
         public CharacterInfoDto GetCharacterOf(string userName)

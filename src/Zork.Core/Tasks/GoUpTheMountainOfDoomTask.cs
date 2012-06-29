@@ -21,9 +21,9 @@ namespace Zork.Core.Tasks
             {
                 var description = "You are at the top of the Mountain of Doom.";
                 if (monster.IsAlive)
-                    description += string.Format("A {0} is here ...", monster.Name);
+                    description += string.Format(" A {0} is here ...", monster.Name);
                 else
-                    description += string.Format("A dead {0} lies on the ground.", monster.Name);
+                    description += string.Format(" A dead {0} lies on the ground.", monster.Name);
                 return description;
             }
         }

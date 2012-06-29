@@ -5,11 +5,11 @@ namespace Zork.Core.Characters
 {
     public class UserChoiceHandler : ICommandHandler<UserChoiceCommand>
     {
-        private readonly CharacterRepository repository;
+        private readonly ICharacterRepository repository;
 
-        public UserChoiceHandler()
+        public UserChoiceHandler(ICharacterRepository repository)
         {
-            repository = new CharacterRepository();
+            this.repository = repository;
         }
 
         public void Execute(UserChoiceCommand command)

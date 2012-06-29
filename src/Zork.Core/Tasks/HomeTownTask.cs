@@ -19,11 +19,5 @@ namespace Zork.Core.Tasks
                 yield return new Choice("M", "Go up the Mountain of Doom.", new GoUpTheMountainOfDoomTask(this));
             }
         }
-
-        public override IExecutableTask Execute(string code, Character taskHolder)
-        {
-            var choice = FindChoice(code);
-            return choice.Execute();
-        }
     }
 }

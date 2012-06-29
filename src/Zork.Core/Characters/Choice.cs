@@ -8,11 +8,6 @@ namespace Zork.Core.Characters
         public string Code { get; private set; }
         public string Description { get; private set; }
 
-        public bool Matches(string code)
-        {
-            return code.ToLower() == Code.ToLower();
-        }
-
         public Choice(string code, string description, IExecutableTask task)
         {
             this.task = task;
@@ -20,7 +15,12 @@ namespace Zork.Core.Characters
             Description = description;
         }
 
-        public IExecutableTask Execute()
+        public bool Matches(string code)
+        {
+            return code.ToLower() == Code.ToLower();
+        }
+
+        public IExecutableTask NextTask()
         {
             return task;
         }

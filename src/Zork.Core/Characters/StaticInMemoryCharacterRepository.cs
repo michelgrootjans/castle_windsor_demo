@@ -2,11 +2,11 @@
 
 namespace Zork.Core.Characters
 {
-    public class CharacterRepository : ICharacterRepository
+    public class StaticInMemoryCharacterRepository : ICharacterRepository
     {
         private static readonly Dictionary<string, Character> users;
 
-        static CharacterRepository()
+        static StaticInMemoryCharacterRepository()
         {
             users = new Dictionary<string, Character>();
         }

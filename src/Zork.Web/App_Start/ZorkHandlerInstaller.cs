@@ -12,6 +12,7 @@ namespace Zork.Web.App_Start
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             var fromZorkCore = Classes.FromAssemblyContaining<IQueryHandler>();
+
             container.Register(fromZorkCore
                                    .BasedOn<IQueryHandler>()
                                    .WithServiceAllInterfaces()
@@ -28,6 +29,17 @@ namespace Zork.Web.App_Start
                                    .WithServiceAllInterfaces()
                                    .LifestyleTransient()
                 );
+
+            container.Register(fromZorkCore
+                                   .BasedOn<IRepository>()
+                                   .WithServiceAllInterfaces()
+                                   .LifestyleTransient());
+
+            container.Register(fromZorkCore
+                                   .BasedOn(typeof (IMapper<,>))
+                                   .WithServiceAllInterfaces()
+                                   .LifestyleTransient());
+
         }
     }
 }

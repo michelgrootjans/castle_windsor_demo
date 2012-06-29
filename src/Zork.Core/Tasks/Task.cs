@@ -17,13 +17,8 @@ namespace Zork.Core.Tasks
         public virtual IExecutableTask Execute(string code, Character taskHolder)
         {
             var choice = FindChoice(code);
-            return choice.Execute();
+            return choice.NextTask();
         }
-    }
-
-    public interface IExecutableChoice
-    {
-        IExecutableTask Execute();
     }
 
     internal class NullChoice : IExecutableChoice
@@ -35,7 +30,7 @@ namespace Zork.Core.Tasks
             this.task = task;
         }
 
-        public IExecutableTask Execute()
+        public IExecutableTask NextTask()
         {
             return task;
         }

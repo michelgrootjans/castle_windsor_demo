@@ -8,9 +8,9 @@ namespace Zork.Core.Characters
     {
         private readonly IMapper<IChoiceInfo, PlayerChoiceDto> choiceMapper;
 
-        public CharacterInfoMapper()
+        public CharacterInfoMapper(IMapper<IChoiceInfo, PlayerChoiceDto> choiceMapper)
         {
-            choiceMapper = new PlayerChoiceMapper();
+            this.choiceMapper = choiceMapper;
         }
 
         public CharacterInfoDto Map(Character character)

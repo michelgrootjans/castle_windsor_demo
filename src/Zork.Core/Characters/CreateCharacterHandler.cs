@@ -7,9 +7,9 @@ namespace Zork.Core.Characters
     {
         private readonly ICharacterRepository repository;
 
-        public CreateCharacterHandler()
+        public CreateCharacterHandler(ICharacterRepository repository)
         {
-            repository = new CharacterRepository();
+            this.repository = repository;
         }
 
         public void Execute(CreateCharacterCommand command)
