@@ -7,9 +7,9 @@ namespace Zork.Core.Login
     {
         private readonly IFindUserByUsernameAndPasswordQuery userQuery;
 
-        public DatabaseUserValidator()
+        public DatabaseUserValidator(IFindUserByUsernameAndPasswordQuery userQuery)
         {
-            userQuery = new FindUserByUsernameAndPasswordQuery();
+            this.userQuery = userQuery;
         }
 
         public bool IsValid(string userName, string password)
